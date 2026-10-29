@@ -4,123 +4,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BOAZ FOOTBALL - Live Scores</title>
+<title>BOAZ FOOTBALL 2026</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#071426;
+color:white;
 }
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #101522;
-  color: white;
+header{
+background:linear-gradient(120deg,#008c57,#00c878);
+padding:25px 12px;
+text-align:center;
 }
-
-header {
-  background: #080d18;
-  padding: 22px 12px;
-  text-align: center;
-  border-bottom: 3px solid #00d084;
+header h1{font-size:30px;margin:0}
+header p{margin:8px 0 0}
+nav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+background:#10243b;
+padding:14px;
 }
-
-header h1 {
-  color: #00d084;
-  margin: 0;
-  font-size: 28px;
+nav a{
+color:white;
+text-decoration:none;
+padding:10px 13px;
+background:#203a56;
+border-radius:7px;
 }
-
-header p {
-  color: #aaa;
-  margin-bottom: 0;
+.container{
+max-width:850px;
+margin:auto;
+padding:15px;
 }
-
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: #182235;
-  padding: 12px;
-  gap: 15px;
+h2{
+color:#00df91;
+border-bottom:2px solid #183d52;
+padding-bottom:10px;
 }
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+.card{
+background:#142b43;
+padding:16px;
+border-radius:12px;
+margin:14px 0;
+box-shadow:0 3px 12px #0005;
 }
-
-nav a:hover {
-  color: #00d084;
+.match{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+text-align:center;
 }
-
-.container {
-  padding: 15px;
-  max-width: 900px;
-  margin: auto;
+.team{flex:1;font-weight:bold}
+.score{font-size:24px;color:#00df91}
+.label{
+color:#00df91;
+font-size:12px;
+font-weight:bold;
 }
-
-.section-title {
-  color: #00d084;
-  margin-top: 25px;
+.prediction{
+border-left:4px solid #00df91;
 }
-
-button {
-  background: #00d084;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+.prediction p{line-height:1.6}
+button{
+background:#00bd78;
+color:white;
+border:0;
+padding:12px 18px;
+border-radius:8px;
+font-weight:bold;
 }
-
-.score-card {
-  background: #1b2639;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 9px;
-  border-left: 4px solid #00d084;
-}
-
-.competition {
-  color: #00d084;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.match {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-}
-
-.score {
-  color: #00d084;
-  font-size: 21px;
-  white-space: nowrap;
-}
-
-.status {
-  color: #aaa;
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-footer {
-  background: #080d18;
-  text-align: center;
-  padding: 22px;
-  margin-top: 35px;
-  color: #aaa;
-}
-
-#message {
-  color: #aaa;
-  text-align: center;
-  padding: 20px;
+.small{color:#b5c8d9;font-size:13px}
+footer{
+background:#10243b;
+padding:25px;
+text-align:center;
+color:#b5c8d9;
+margin-top:30px;
 }
 </style>
 </head>
@@ -128,156 +93,91 @@ footer {
 <body>
 
 <header>
-  <h1>⚽ BOAZ FOOTBALL</h1>
-  <p>Your Home of Live Football Scores</p>
+<h1>⚽ BOAZ FOOTBALL</h1>
+<p>YOUR HOME OF FOOTBALL</p>
+<p>Live Scores | Fixtures | Predictions</p>
 </header>
 
 <nav>
-  <a href="#scores">Live Scores</a>
-  <a href="#leagues">Leagues</a>
-  <a href="#about">About Us</a>
+<a href="#live">Live Scores</a>
+<a href="#fixtures">Fixtures</a>
+<a href="#predictions">Predictions</a>
+<a href="#about">About</a>
 </nav>
 
-<div class="container" id="scores">
+<div class="container">
 
-  <h2 class="section-title">⚡ LIVE FOOTBALL SCORES</h2>
+<section id="live">
+<h2>🔴 LIVE MATCHES</h2>
+<div id="matches">
+<div class="card">Connecting to live football scores...</div>
+</div>
+</section>
 
-  <button onclick="loadScores()">↻ Refresh Scores</button>
+<section id="fixtures">
+<h2>📅 UPCOMING FIXTURES</h2>
+<div class="card">
+<p>Upcoming fixtures will appear here when connected to the football API.</p>
+</div>
+</section>
 
-  <p id="message">Loading football scores...</p>
+<section id="predictions">
+<h2>🔥 MATCH PREDICTIONS</h2>
 
-  <div id="scoreboard"></div>
+<div class="card prediction">
+<span class="label">EXAMPLE PREDICTION</span>
+<h3>Arsenal vs Chelsea</h3>
+<p>🏆 Winner: Arsenal</p>
+<p>⚽ Correct score: 2 - 1</p>
+<p>📊 Over/Under 2.5: Over</p>
+<p>🤝 Both teams score: YES</p>
+</div>
 
-  <h2 class="section-title" id="leagues">
-    🌍 Football Leagues
-  </h2>
+<div class="card prediction">
+<span class="label">EXAMPLE PREDICTION</span>
+<h3>PSG vs Marseille</h3>
+<p>🏆 Winner: PSG</p>
+<p>⚽ Correct score: 3 - 1</p>
+<p>📊 Over/Under 2.5: Over</p>
+<p>🤝 Both teams score: YES</p>
+</div>
 
-  <p>Premier League</p>
-  <p>UEFA Champions League</p>
-  <p>La Liga</p>
-  <p>Bundesliga</p>
-  <p>Serie A</p>
-  <p>Ligue 1</p>
+<div class="card prediction">
+<span class="label">EXAMPLE PREDICTION</span>
+<h3>Manchester City vs Liverpool</h3>
+<p>🏆 Winner: Draw</p>
+<p>⚽ Correct score: 2 - 2</p>
+<p>📊 Over/Under 2.5: Over</p>
+<p>🤝 Both teams score: YES</p>
+</div>
 
-  <h2 class="section-title" id="about">About Boaz Football</h2>
+<p class="small">
+These are demonstration predictions, not verified forecasts.
+Football predictions are uncertain and not guaranteed.
+</p>
+</section>
 
-  <p>
-    BOAZ FOOTBALL brings you football scores,
-    match updates and information from major
-    football competitions around the world.
-  </p>
+<section id="about">
+<h2>ABOUT BOAZ FOOTBALL</h2>
+<div class="card">
+<p>Welcome to BOAZ FOOTBALL 2026.</p>
+<p>Get football updates, match fixtures, live scores and match analysis in one place.</p>
+</div>
+</section>
 
 </div>
 
 <footer>
-  <p>© 2026 BOAZ FOOTBALL</p>
-  <p>Football Lives Here ⚽</p>
+<p>© 2026 BOAZ FOOTBALL</p>
+<p>Created by Boaz</p>
 </footer>
 
 <script>
-
-const leagues = [
-  {name: "Premier League", id: "eng.1"},
-  {name: "Champions League", id: "uefa.champions"},
-  {name: "La Liga", id: "esp.1"},
-  {name: "Bundesliga", id: "ger.1"},
-  {name: "Serie A", id: "ita.1"},
-  {name: "Ligue 1", id: "fra.1"}
-];
-
-async function loadScores() {
-
-  const board = document.getElementById("scoreboard");
-  const message = document.getElementById("message");
-
-  board.innerHTML = "";
-  message.innerText = "Loading latest scores...";
-
-  let matchesFound = 0;
-
-  for (const league of leagues) {
-
-    try {
-
-      const response = await fetch(
-        `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.id}/scoreboard`
-      );
-
-      if (!response.ok) {
-        throw new Error("Could not load scores");
-      }
-
-      const data = await response.json();
-
-      const events = data.events || [];
-
-      if (events.length > 0) {
-
-        const title = document.createElement("h3");
-        title.className = "section-title";
-        title.innerText = league.name;
-
-        board.appendChild(title);
-
-      }
-
-      events.forEach(event => {
-
-        const competition = document.createElement("div");
-        competition.className = "score-card";
-
-        const competitors =
-          event.competitions?.[0]?.competitors || [];
-
-        const home = competitors.find(t => t.homeAway === "home");
-        const away = competitors.find(t => t.homeAway === "away");
-
-        const homeName = home?.team?.displayName || "Home Team";
-        const awayName = away?.team?.displayName || "Away Team";
-
-        const homeScore = home?.score ?? "-";
-        const awayScore = away?.score ?? "-";
-
-        const status = event.status?.type?.description || "Scheduled";
-
-        competition.innerHTML = `
-          <div class="competition">${league.name}</div>
-
-          <div class="match">
-            <span>${homeName}</span>
-            <span class="score">${homeScore} - ${awayScore}</span>
-            <span>${awayName}</span>
-          </div>
-
-          <div class="status">${status}</div>
-        `;
-
-        board.appendChild(competition);
-
-        matchesFound++;
-
-      });
-
-    } catch (error) {
-      console.log("League loading error:", league.name, error);
-    }
-
-  }
-
-  if (matchesFound === 0) {
-    message.innerText =
-      "No matches available right now. Please refresh later.";
-  } else {
-    message.innerText =
-      "Showing available match information.";
-  }
-
+async function loadMatches(){
+const box=document.getElementById("matches");
+box.innerHTML='<div class="card">Live scores require a football API key.</div>';
 }
-
-loadScores();
-
-setInterval(loadScores, 60000);
-
+loadMatches();
 </script>
 
 </body>
