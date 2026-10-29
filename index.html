@@ -4,88 +4,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BOAZ FOOTBALL 2026</title>
+<title>BOAZ FOOTBALL</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#071426;
-color:white;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101820;
+  color: white;
 }
-header{
-background:linear-gradient(120deg,#008c57,#00c878);
-padding:25px 12px;
-text-align:center;
+header {
+  background: #00a86b;
+  padding: 22px;
+  text-align: center;
 }
-header h1{font-size:30px;margin:0}
-header p{margin:8px 0 0}
-nav{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-background:#10243b;
-padding:14px;
+h1 { margin: 0; }
+nav {
+  background: #17232d;
+  padding: 15px;
+  text-align: center;
 }
-nav a{
-color:white;
-text-decoration:none;
-padding:10px 13px;
-background:#203a56;
-border-radius:7px;
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
-.container{
-max-width:850px;
-margin:auto;
-padding:15px;
+.container {
+  padding: 18px;
 }
-h2{
-color:#00df91;
-border-bottom:2px solid #183d52;
-padding-bottom:10px;
+.card {
+  background: #20313d;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 12px;
 }
-.card{
-background:#142b43;
-padding:16px;
-border-radius:12px;
-margin:14px 0;
-box-shadow:0 3px 12px #0005;
+h2 { color: #00e699; }
+.prediction {
+  color: #00e699;
+  font-weight: bold;
 }
-.match{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:8px;
-text-align:center;
+.score {
+  font-size: 23px;
+  text-align: center;
+  margin: 12px;
 }
-.team{flex:1;font-weight:bold}
-.score{font-size:24px;color:#00df91}
-.label{
-color:#00df91;
-font-size:12px;
-font-weight:bold;
+button {
+  background: #00a86b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 7px;
+  font-weight: bold;
 }
-.prediction{
-border-left:4px solid #00df91;
-}
-.prediction p{line-height:1.6}
-button{
-background:#00bd78;
-color:white;
-border:0;
-padding:12px 18px;
-border-radius:8px;
-font-weight:bold;
-}
-.small{color:#b5c8d9;font-size:13px}
-footer{
-background:#10243b;
-padding:25px;
-text-align:center;
-color:#b5c8d9;
-margin-top:30px;
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #17232d;
 }
 </style>
 </head>
@@ -94,91 +69,57 @@ margin-top:30px;
 
 <header>
 <h1>⚽ BOAZ FOOTBALL</h1>
-<p>YOUR HOME OF FOOTBALL</p>
-<p>Live Scores | Fixtures | Predictions</p>
+<p>Live Scores | Match Predictions | Football News</p>
 </header>
 
 <nav>
-<a href="#live">Live Scores</a>
-<a href="#fixtures">Fixtures</a>
 <a href="#predictions">Predictions</a>
-<a href="#about">About</a>
+<a href="#scores">Live Scores</a>
 </nav>
 
 <div class="container">
 
-<section id="live">
-<h2>🔴 LIVE MATCHES</h2>
-<div id="matches">
-<div class="card">Connecting to live football scores...</div>
-</div>
-</section>
+<h2 id="predictions">🔥 Today's Match Predictions</h2>
 
-<section id="fixtures">
-<h2>📅 UPCOMING FIXTURES</h2>
 <div class="card">
-<p>Upcoming fixtures will appear here when connected to the football API.</p>
-</div>
-</section>
-
-<section id="predictions">
-<h2>🔥 MATCH PREDICTIONS</h2>
-
-<div class="card prediction">
-<span class="label">EXAMPLE PREDICTION</span>
-<h3>Arsenal vs Chelsea</h3>
-<p>🏆 Winner: Arsenal</p>
-<p>⚽ Correct score: 2 - 1</p>
-<p>📊 Over/Under 2.5: Over</p>
-<p>🤝 Both teams score: YES</p>
+<h3>Arsenal vs PSG</h3>
+<div class="score">2 - 1</div>
+<p class="prediction">Prediction: Arsenal Win</p>
+<p>Expected goals: Over 1.5</p>
+<p>Both Teams To Score: YES</p>
+<p>Confidence: Demo estimate 65%</p>
 </div>
 
-<div class="card prediction">
-<span class="label">EXAMPLE PREDICTION</span>
-<h3>PSG vs Marseille</h3>
-<p>🏆 Winner: PSG</p>
-<p>⚽ Correct score: 3 - 1</p>
-<p>📊 Over/Under 2.5: Over</p>
-<p>🤝 Both teams score: YES</p>
-</div>
-
-<div class="card prediction">
-<span class="label">EXAMPLE PREDICTION</span>
+<div class="card">
 <h3>Manchester City vs Liverpool</h3>
-<p>🏆 Winner: Draw</p>
-<p>⚽ Correct score: 2 - 2</p>
-<p>📊 Over/Under 2.5: Over</p>
-<p>🤝 Both teams score: YES</p>
+<div class="score">2 - 2</div>
+<p class="prediction">Prediction: Draw</p>
+<p>Expected goals: Over 2.5</p>
+<p>Both Teams To Score: YES</p>
+<p>Confidence: Demo estimate 60%</p>
 </div>
 
-<p class="small">
-These are demonstration predictions, not verified forecasts.
-Football predictions are uncertain and not guaranteed.
-</p>
-</section>
-
-<section id="about">
-<h2>ABOUT BOAZ FOOTBALL</h2>
 <div class="card">
-<p>Welcome to BOAZ FOOTBALL 2026.</p>
-<p>Get football updates, match fixtures, live scores and match analysis in one place.</p>
+<h3>Bayern Munich vs Dortmund</h3>
+<div class="score">3 - 1</div>
+<p class="prediction">Prediction: Bayern Win</p>
+<p>Expected goals: Over 2.5</p>
+<p>Both Teams To Score: YES</p>
+<p>Confidence: Demo estimate 70%</p>
 </div>
-</section>
+
+<h2 id="scores">⚽ Live Scores</h2>
+<div class="card">
+<p>Live scores will appear here when a live-score API is connected.</p>
+</div>
 
 </div>
 
 <footer>
-<p>© 2026 BOAZ FOOTBALL</p>
-<p>Created by Boaz</p>
+<p>BOAZ FOOTBALL © 2026</p>
+<p>Football Predictions and Analysis</p>
+<p>Predictions are illustrative, not guaranteed results.</p>
 </footer>
-
-<script>
-async function loadMatches(){
-const box=document.getElementById("matches");
-box.innerHTML='<div class="card">Live scores require a football API key.</div>';
-}
-loadMatches();
-</script>
 
 </body>
 </html>
