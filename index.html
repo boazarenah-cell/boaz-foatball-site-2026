@@ -4,50 +4,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BOAZ FOOTBALL</title>
+<title>Boaz Football - Live Scores</title>
 <style>
-body{margin:0;background:#101820;color:white;font-family:Arial,sans-serif}
-header{background:#00a86b;padding:22px;text-align:center}
-header h1{margin:0}
-nav{background:#17232e;padding:14px;text-align:center}
-nav a{color:white;margin:10px;text-decoration:none}
-main{padding:20px}
-.card{background:#202f3c;padding:18px;margin:15px 0;border-radius:12px}
-h2{color:#35e69a}
-footer{text-align:center;background:#17232e;padding:20px;color:#bbb}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #071426;
+  color: white;
+}
+header {
+  background: #00a86b;
+  padding: 22px 12px;
+  text-align: center;
+}
+h1 { margin: 0; }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 15px;
+  background: #10233c;
+}
+nav a { color: white; text-decoration: none; }
+main { padding: 15px; max-width: 650px; margin: auto; }
+h2 { color: #32e6a0; }
+.match {
+  background: #132943;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border-left: 4px solid #00d084;
+}
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+.score { font-size: 23px; color: #32e6a0; }
+.status { color: #ffc857; margin-top: 12px; font-size: 13px; }
+button {
+  background: #00a86b;
+  color: white;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+footer { text-align: center; padding: 20px; color: #b7c5d6; }
 </style>
 </head>
 <body>
+
 <header>
-<h1>⚽ BOAZ FOOTBALL</h1>
-<p>Your home of football news and predictions</p>
+  <h1>⚽ BOAZ FOOTBALL</h1>
+  <p>Live Scores • Fixtures • Results</p>
 </header>
+
 <nav>
-<a href="#news">News</a>
-<a href="#matches">Matches</a>
-<a href="#predictions">Predictions</a>
+  <a href="#live">Live Scores</a>
+  <a href="#fixtures">Matches</a>
+  <a href="#results">Results</a>
 </nav>
+
 <main>
-<section class="card" id="news">
-<h2>🔥 Latest Football News</h2>
-<p>Welcome to BOAZ FOOTBALL! Follow your favourite teams and stay updated.</p>
-</section>
-<section class="card" id="matches">
-<h2>📅 Match Centre</h2>
-<p>PSG, Arsenal and other big clubs.</p>
-<p>Check match schedules and results before making predictions.</p>
-</section>
-<section class="card" id="predictions">
-<h2>🎯 Football Predictions</h2>
-<p>Explore possible match outcomes and goal predictions.</p>
-<p>Predictions are estimates, not guaranteed results.</p>
-</section>
+  <h2 id="live">🔴 Football Scores</h2>
+  <p id="updated">Loading matches...</p>
+  <button onclick="loadScores()">Refresh Scores</button>
+  <div id="matches"></div>
 </main>
+
 <footer>
-<p>© 2026 BOAZ FOOTBALL</p>
-<p>Built for football fans ⚽</p>
+  <p>BOAZ FOOTBALL © 2026</p>
+  <p>Football fans, stay updated!</p>
 </footer>
+
+<script>
+const leagues = [
+  {name:"Premier League", url:"eng.1"},
+  {name:"Champions League", url:"uefa.champions"},
+  {name:"La Liga", url:"esp.1"},
+  {name:"Bundesliga", url:"ger.1"},
+  {name:"Serie A", url:"ita.1"},
+  {name:"Ligue 1", url:"fra.1"}
+];
+
+async function loadScores() {
+  const container = document.getElementById("matches");
+  document.getElementById("updated").textContent =
+    "Updating scores...";
+
+  try {
+    const results = await Promise.all(
+      leagues.map(async league => {
+        const response = await fetch(
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/" +
+          league.url + "/scoreboard"
+        );
+        if (!response.ok) throw new Error("Feed unavailable");
+        return {league: league.name, data: await response.json()};
+      })
+    );
+
+    let html = "";
+    let count = 0;
+
+    results.forEach(item => {
+      const events = item.data.events || [];
+      if (!events.length) return;
+
+      html += "<h2>" + item.league + "</h2>";
+
+      events.forEach(event => {
+        const competition = event.competitions?.[0];
+        const competitors = competition?.competitors || [];
+        const home = competitors.find(t => t.homeAway === "home");
+        const away = competitors.find(t => t.homeAway === "away");
+
+        if (!home || !away) return;
+
+        const status = competition.status?.type?.description ||
+                       event.status?.type?.description ||
+                       "Scheduled";
+        const homeScore = home.score ?? "-";
+        const awayScore = away.score ?? "-";
+
+        html += `
+          <div class="match">
+            <div class="teams">
+              <span>${home.team.displayName}</span>
+              <span class="score">${homeScore} - ${awayScore}</span>
+              <span>${away.team.displayName}</span>
+            </div>
+            <div class="status">${status}</div>
+          </div>`;
+        count++;
+      });
+    });
+
+    container.innerHTML = count ? html :
+      "<p>No matches found in these competitions right now.</p>";
+
+    document.getElementById("updated").textContent =
+      "Last updated: " + new Date().toLocaleTimeString();
+
+  } catch (error) {
+    document.getElementById("updated").textContent =
+      "Could not load scores. Check your internet and try again.";
+  }
+}
+
+loadScores();
+setInterval(loadScores, 60000);
+</script>
+
 </body>
 </html>
-
- 
