@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boaz Football | Home</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #07111f;
+  color: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #0d1b2a;
+  padding: 20px 16px;
+  border-bottom: 2px solid #00e676;
+}
+.logo {
+  color: #00e676;
+  font-size: 27px;
+  font-weight: bold;
+}
+header p {
+  color: #aab7c4;
+  margin-top: 6px;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 15px;
+  background: #102337;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #00e676;
+}
+.container {
+  padding: 18px;
+  max-width: 900px;
+  margin: auto;
+}
+.hero {
+  background: linear-gradient(135deg, #064e3b, #102337);
+  padding: 28px 20px;
+  border-radius: 15px;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.hero p {
+  color: #d0dfda;
+  line-height: 1.6;
+}
+.button {
+  display: inline-block;
+  margin-top: 17px;
+  background: #00e676;
+  color: #07111f;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+.section-title {
+  font-size: 22px;
+  margin: 25px 0 15px;
+}
+.card {
+  background: #102337;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #20364b;
+}
+.card h3 {
+  margin-bottom: 12px;
+}
+.match {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: center;
+}
+.team {
+  flex: 1;
+  font-weight: bold;
+}
+.vs {
+  color: #00e676;
+  font-weight: bold;
+}
+.status {
+  color: #00e676;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.muted {
+  color: #aab7c4;
+  line-height: 1.5;
+  font-size: 14px;
+}
+input {
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0 15px;
+  border-radius: 8px;
+  border: 1px solid #40566b;
+  background: #102337;
+  color: white;
+  font-size: 16px;
+}
+footer {
+  background: #0d1b2a;
+  color: #aab7c4;
+  text-align: center;
+  padding: 24px 15px;
+  margin-top: 25px;
+  line-height: 1.8;
+}
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">⚽ BOAZ FOOTBALL</div>
+  <p>Your football world, all in one place.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#matches">Matches</a>
+  <a href="#predictions">Predictions</a>
+  <a href="#news">Football News</a>
+</nav>
+
+<main class="container">
+  <section class="hero" id="home">
+    <h1>Welcome to Boaz Football</h1>
+    <p>
+      Follow your favourite teams, explore match previews,
+      check football predictions and stay connected to the game.
+    </p>
+    <a class="button" href="#matches">Explore Matches</a>
+  </section>
+
+  <h2 class="section-title" id="matches">⚽ Match Centre</h2>
+  <p class="muted">
+    These are sample fixtures. Replace them with verified,
+    up-to-date match information.
+  </p>
+
+  <div class="card">
+    <div class="status">SAMPLE FIXTURE</div>
+    <div class="match">
+      <div class="team">Arsenal</div>
+      <div class="vs">VS</div>
+      <div class="team">Chelsea</div>
+    </div>
+    <p class="muted" style="text-align:center;margin-top:12px">
+      Match time: To be confirmed
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="status">SAMPLE FIXTURE</div>
+    <div class="match">
+      <div class="team">Bayern Munich</div>
+      <div class="vs">VS</div>
+      <div class="team">Dortmund</div>
+    </div>
+    <p class="muted" style="text-align:center;margin-top:12px">
+      Match time: To be confirmed
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="status">SAMPLE FIXTURE</div>
+    <div class="match">
+      <div class="team">Manchester City</div>
+      <div class="vs">VS</div>
+      <div class="team">Liverpool</div>
+    </div>
+    <p class="muted" style="text-align:center;margin-top:12px">
+      Match time: To be confirmed
+    </p>
+  </div>
+
+  <h2 class="section-title" id="predictions">📊 Match Predictions</h2>
+  <div class="card">
+    <h3>Explore Match Analysis</h3>
+    <p class="muted">
+      Compare team form, goals scored, goals conceded and recent
+      results before making your own assessment.
+    </p>
+    <p class="muted" style="margin-top:10px">
+      Predictions are uncertain. No result is guaranteed.
+    </p>
+  </div>
+
+  <h2 class="section-title" id="news">📰 Football News</h2>
+  <div class="card">
+    <h3>Latest Football Updates</h3>
+    <p class="muted">
+      Your news section is ready. Add verified football headlines,
+      transfer updates and league reports here.
+    </p>
+  </div>
+
+  <h2 class="section-title">🔎 Find a Team</h2>
+  <input
+    type="text"
+    id="teamSearch"
+    placeholder="Search Arsenal, Bayern, Chelsea..."
+    oninput="searchTeams()"
+  />
+  <p class="muted" id="searchMessage">
+    Type a team name to search the sample match list.
+  </p>
+
+</main>
+
+<footer>
+  <strong>⚽ BOAZ FOOTBALL</strong>
+  <p>Built for football lovers.</p>
+  <p>© 2026 Boaz Football</p>
+</footer>
+
+<script>
+function searchTeams() {
+  const input = document.getElementById("teamSearch");
+  const query = input.value.toLowerCase().trim();
+  const cards = document.querySelectorAll("#matches ~ .card");
+  let found = 0;
+
+  cards.forEach(function(card) {
+    const matches = card.textContent.toLowerCase().includes(query);
+    card.classList.toggle("hidden", query !== "" && !matches);
+    if (query !== "" && matches) found++;
+  });
+
+  const message = document.getElementById("searchMessage");
+
+  if (query === "") {
+    message.textContent =
+      "Type a team name to search the sample match list.";
+  } else if (found > 0) {
+    message.textContent = "Found " + found + " matching sample match(es).";
+  } else {
+    message.textContent =
+      "No matching sample match found. Try Arsenal, Chelsea, Bayern, Dortmund, Manchester City or Liverpool.";
+  }
+}
+</script>
+</body>
+</html>
