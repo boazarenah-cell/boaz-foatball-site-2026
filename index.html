@@ -3,120 +3,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BOAZ FOOTBALL | Predictions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boaz Football Predictions</title>
 <style>
-body{margin:0;background:#101820;color:white;font-family:Arial}
-header{background:#00a86b;text-align:center;padding:20px}
-main{padding:15px;max-width:700px;margin:auto}
-h2{color:#00e699}
-.card{background:#20313d;padding:16px;margin:14px 0;border-radius:12px}
-.teams{text-align:center;font-size:19px;font-weight:bold}
-.tip{color:#00e699;font-weight:bold}
-.date{color:#ccc}
-small{color:#ccc}
+*{box-sizing:border-box}
+body{margin:0;background:#08111f;color:#fff;font-family:Arial,sans-serif}
+header{background:#0e9f6e;padding:24px 14px;text-align:center}
+header h1{margin:0;font-size:27px}
+header p{margin:8px 0 0}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px}
+button,select{padding:10px;border:0;border-radius:7px;font-weight:bold}
+button{background:#10b981;color:#062116}
+select{background:#17263a;color:white}
+main{max-width:900px;margin:auto;padding:12px}
+.notice{background:#17263a;padding:12px;border-radius:9px;font-size:13px;line-height:1.5}
+h2{color:#34d399;font-size:19px}
+.match{background:#132238;border:1px solid #263b54;padding:14px;border-radius:10px;margin:10px 0}
+.league{color:#34d399;font-size:12px;font-weight:bold}
+.teams{font-size:16px;font-weight:bold;margin:12px 0}
+.picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.pick{background:#20344c;padding:10px;border-radius:7px;font-size:13px}
+.pick b{display:block;color:#facc15;margin-top:5px}
+.small{color:#b8c7d9;font-size:12px;margin-top:10px}
+footer{text-align:center;padding:24px;color:#a7b6c8;font-size:12px}
 </style>
 </head>
 <body>
 <header>
 <h1>⚽ BOAZ FOOTBALL</h1>
-<p>Upcoming Matches & Predictions</p>
+<p>Upcoming Fixtures & Match Predictions</p>
 </header>
+
+<nav>
+<select id="league" onchange="render()">
+<option value="All">All Popular Leagues</option>
+<option>Premier League</option>
+<option>La Liga</option>
+<option>Bundesliga</option>
+<option>Serie A</option>
+<option>Ligue 1</option>
+<option>Eredivisie</option>
+<option>Championship</option>
+<option>Scottish Premiership</option>
+</select>
+<select id="day" onchange="render()">
+<option value="All">Saturday–Monday</option>
+<option>Saturday</option>
+<option>Sunday</option>
+<option>Monday</option>
+</select>
+<button onclick="render()">Show Matches</button>
+</nav>
+
 <main>
-<h2>📅 SATURDAY — 31 OCTOBER</h2>
-
-<div class="card">
-<p class="date">12:30 PM UK time</p>
-<p class="teams">Chelsea vs Manchester United</p>
-<p class="tip">Prediction: Both teams to score</p>
-<p>Possible score: 1–1</p>
+<div class="notice">
+📅 <b>31 October – 2 November 2026</b><br>
+Predictions are estimates, not guaranteed results. These are sample analytical picks, not live odds. Verify fixtures and team news before betting.
 </div>
-
-<div class="card">
-<p class="date">3:00 PM UK time</p>
-<p class="teams">Bournemouth vs Leeds United</p>
-<p class="tip">Prediction: Over 1.5 goals</p>
-<p>Possible score: 2–1</p>
-</div>
-
-<div class="card">
-<p class="date">3:00 PM UK time</p>
-<p class="teams">Manchester City vs Brighton</p>
-<p class="tip">Prediction: Manchester City win</p>
-<p>Possible score: 2–1</p>
-</div>
-
-<div class="card">
-<p class="date">5:30 PM UK time</p>
-<p class="teams">Tottenham vs Crystal Palace</p>
-<p class="tip">Prediction: Over 1.5 goals</p>
-<p>Possible score: 2–1</p>
-</div>
-
-<div class="card">
-<p class="date">8:00 PM UK time</p>
-<p class="teams">Aston Villa vs Fulham</p>
-<p class="tip">Prediction: Aston Villa win</p>
-<p>Possible score: 2–1</p>
-</div>
-
-<div class="card">
-<p class="date">Norway — 4:00 PM local time</p>
-<p class="teams">Fredrikstad vs Rosenborg</p>
-<p class="tip">Prediction: Over 1.5 goals</p>
-<p>Possible score: 1–2</p>
-</div>
-
-<div class="card">
-<p class="date">Norway — 6:00 PM local time</p>
-<p class="teams">Aalesund vs Sandefjord</p>
-<p class="tip">Prediction: Over 1.5 goals</p>
-<p>Possible score: 1–1</p>
-</div>
-
-<h2>📅 SUNDAY — 1 NOVEMBER</h2>
-
-<div class="card">
-<p class="date">2:30 PM Norway time</p>
-<p class="teams">Brann vs Molde</p>
-<p class="tip">Prediction: Both teams to score</p>
-<p>Possible score: 2–1</p>
-</div>
-
-<div class="card">
-<p class="date">4:30 PM UK time</p>
-<p class="teams">Liverpool vs Arsenal</p>
-<p class="tip">Prediction: Both teams to score</p>
-<p>Possible score: 1–1</p>
-</div>
-
-<div class="card">
-<p class="date">5:00 PM Norway time</p>
-<p class="teams">Start vs Lillestrøm</p>
-<p class="tip">Prediction: Over 1.5 goals</p>
-<p>Possible score: 1–2</p>
-</div>
-
-<div class="card">
-<p class="date">7:15 PM Norway time</p>
-<p class="teams">Vålerenga vs Tromsø</p>
-<p class="tip">Prediction: Both teams to score</p>
-<p>Possible score: 1–1</p>
-</div>
-
-<h2>📅 MONDAY — 2 NOVEMBER</h2>
-
-<div class="card">
-<p class="date">8:00 PM UK time</p>
-<p class="teams">Newcastle United vs Everton</p>
-<p class="tip">Prediction: Newcastle to win</p>
-<p>Possible score: 2–1</p>
-</div>
-
-<p><small>Predictions are illustrative estimates, not guaranteed outcomes. Match times and fixtures may change. Check official schedules before publishing.</small></p>
+<div id="matches"></div>
 </main>
-<footer style="text-align:center;padding:20px">
-BOAZ FOOTBALL © 2026
+
+<footer>
+Boaz Football © 2026 · Football analysis for fans<br>
+Predictions can be wrong. Please gamble responsibly.
 </footer>
+
+<script>
+const games = [
+["Saturday","Premier League","Chelsea","Manchester United","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Premier League","Bournemouth","Leeds United","2-1","Home","Over 2.5","Yes"],
+["Saturday","Premier League","Brentford","Nottingham Forest","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Premier League","Coventry City","Sunderland","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Premier League","Hull City","Ipswich Town","1-2","Away","Over 2.5","Yes"],
+["Saturday","Premier League","Manchester City","Brighton","2-1","Home","Over 2.5","Yes"],
+["Saturday","Premier League","Tottenham","Crystal Palace","2-1","Home","Over 2.5","Yes"],
+["Saturday","Premier League","Aston Villa","Fulham","2-1","Home","Over 2.5","Yes"],
+["Sunday","Premier League","Liverpool","Arsenal","2-1","Home","Over 2.5","Yes"],
+["Monday","Premier League","Newcastle United","Everton","2-0","Home","Under 2.5","No"],
+
+["Saturday","La Liga","Levante","Atletico Madrid","0-2","Away","Under 2.5","No"],
+["Saturday","La Liga","Rayo Vallecano","Celta Vigo","1-1","Draw","Under 2.5","Yes"],
+["Saturday","La Liga","Real Betis","Malaga","2-0","Home","Under 2.5","No"],
+["Saturday","La Liga","Barcelona","Alaves","3-1","Home","Over 2.5","Yes"],
+["Sunday","La Liga","Getafe","Sevilla","1-1","Draw","Under 2.5","Yes"],
+["Sunday","La Liga","Racing","Real Madrid","1-2","Away","Over 2.5","Yes"],
+["Sunday","La Liga","Elche","Valencia","1-1","Draw","Under 2.5","Yes"],
+["Sunday","La Liga","Athletic Bilbao","Real Sociedad","1-1","Draw","Under 2.5","Yes"],
+["Monday","La Liga","Deportivo La Coruna","Osasuna","1-1","Draw","Under 2.5","Yes"],
+
+["Saturday","Bundesliga","Augsburg","Freiburg","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Bundesliga","Bayer Leverkusen","Stuttgart","2-1","Home","Over 2.5","Yes"],
+["Saturday","Bundesliga","Borussia Monchengladbach","Paderborn","2-1","Home","Over 2.5","Yes"],
+["Saturday","Bundesliga","Schalke","RB Leipzig","1-2","Away","Over 2.5","Yes"],
+["Saturday","Bundesliga","Werder Bremen","Hoffenheim","2-1","Home","Over 2.5","Yes"],
+["Saturday","Bundesliga","Bayern Munich","Borussia Dortmund","3-2","Home","Over 2.5","Yes"],
+
+["Saturday","Serie A","Bologna","Monza","1-0","Home","Under 2.5","No"],
+["Saturday","Serie A","Udinese","Roma","1-2","Away","Over 2.5","Yes"],
+["Saturday","Serie A","AC Milan","Inter","1-1","Draw","Under 2.5","Yes"],
+
+["Friday","Ligue 1","Le Havre","PSG","0-2","Away","Under 2.5","No"],
+["Friday","Ligue 1","Nice","Rennes","1-1","Draw","Under 2.5","Yes"],
+["Friday","Ligue 1","Lille","Lens","2-1","Home","Over 2.5","Yes"],
+["Saturday","Ligue 1","Lorient","Brest","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Ligue 1","Lyon","Angers","2-0","Home","Under 2.5","No"],
+
+["Saturday","Championship","Lincoln City","Birmingham City","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Championship","Norwich City","Watford","2-1","Home","Over 2.5","Yes"],
+["Saturday","Championship","Stoke City","Preston","1-0","Home","Under 2.5","No"],
+["Saturday","Championship","Southampton","QPR","2-1","Home","Over 2.5","Yes"],
+["Saturday","Championship","Swansea","Blackburn","1-1","Draw","Under 2.5","Yes"],
+
+["Saturday","Scottish Premiership","Kilmarnock","St Johnstone","1-1","Draw","Under 2.5","Yes"],
+["Saturday","Scottish Premiership","Motherwell","St Mirren","2-1","Home","Over 2.5","Yes"]
+];
+
+function render(){
+ const league=document.getElementById("league").value;
+ const day=document.getElementById("day").value;
+ const filtered=games.filter(g=>
+   (league==="All"||g[1]===league)&&
+   (day==="All"||g[0]===day)
+ );
+ const root=document.getElementById("matches");
+ if(!filtered.length){
+  root.innerHTML="<p>No listed matches for this filter. Check an updated fixture source.</p>";
+  return;
+ }
+ let html="";
+ let previous="";
+ filtered.forEach(g=>{
+  if(g[0]!==previous){
+   html+="<h2>"+g[0]+", "+(g[0]==="Saturday"?"31 October":g[0]==="Sunday"?"1 November":"2 November")+"</h2>";
+   previous=g[0];
+  }
+  html+=`<article class="match">
+  <div class="league">${g[1]}</div>
+  <div class="teams">${g[2]} vs ${g[3]}</div>
+  <div class="picks">
+   <div class="pick">Predicted score<b>${g[4]}</b></div>
+   <div class="pick">1X2 selection<b>${g[5]}</b></div>
+   <div class="pick">Goals 2.5<b>${g[6]}</b></div>
+   <div class="pick">Both teams score<b>${g[7]}</b></div>
+  </div>
+  <div class="small">Estimated prediction · Not a guaranteed outcome</div>
+  </article>`;
+ });
+ root.innerHTML=html;
+}
+render();
+</script>
 </body>
 </html>
