@@ -1,16 +1,25 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOAZ FOOTBALL</title>
 <style>
-body{margin:0;background:#071426;color:white;font-family:Arial}
-header{background:#102b48;padding:20px;text-align:center}
-h1{color:#00e676}
-section{padding:15px}
-.card{background:#163451;padding:15px;margin:10px 0;border-radius:10px}
-button{background:#00c853;color:white;border:0;padding:10px;border-radius:6px}
-select{padding:10px;width:100%;margin:10px 0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#071426;color:white}
+header{background:#0d2038;padding:22px;text-align:center}
+header h1{color:#00e676;margin:0}
+nav{background:#102b48;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
+main{padding:15px;max-width:900px;margin:auto}
+h2{color:#00e676;border-bottom:1px solid #29435e;padding-bottom:10px}
+.card{background:#102b48;padding:16px;margin:12px 0;border-radius:10px}
+.match{text-align:center;font-size:17px;font-weight:bold}
+.tag{color:#00e676;font-size:13px}
+.prediction{color:#ffd54f;font-weight:bold}
+.whatsapp{display:inline-block;background:#25D366;color:white;padding:13px 22px;text-decoration:none;border-radius:8px;font-weight:bold}
+footer{text-align:center;background:#0d2038;padding:20px;margin-top:30px}
 </style>
 </head>
 <body>
@@ -18,59 +27,89 @@ select{padding:10px;width:100%;margin:10px 0}
 <header>
 <h1>⚽ BOAZ FOOTBALL</h1>
 <p>Your Home of Football Predictions</p>
+<p>LIVE SCORES | FIXTURES | PREDICTIONS</p>
 </header>
 
-<section>
-<h2>🔥 Today's Predictions</h2>
+<nav>
+<a href="#matches">Matches</a>
+<a href="#predictions">Predictions</a>
+<a href="#leagues">Leagues</a>
+<a href="#scores">Live Scores</a>
+<a href="#contact">Contact</a>
+</nav>
 
-<div class="card">
-<strong>Arsenal vs Chelsea</strong>
-<p>Prediction: Arsenal or Draw</p>
-<p>Goals: Over 1.5</p>
+<main>
+
+<section id="matches">
+<h2>📅 Upcoming Matches</h2>
+<div class="card match">
+<p>Arsenal vs Chelsea</p>
+<span class="tag">Upcoming Match</span>
 </div>
-
-<div class="card">
-<strong>PSG vs Marseille</strong>
-<p>Prediction: PSG Win</p>
-<p>Goals: Over 1.5</p>
+<div class="card match">
+<p>PSG vs Marseille</p>
+<span class="tag">Upcoming Match</span>
 </div>
-
-<div class="card">
-<strong>Bayern vs Dortmund</strong>
-<p>Prediction: Bayern Win</p>
-<p>Goals: Over 2.5</p>
-</div>
-
-<h2>🌍 Popular Leagues</h2>
-<select>
-<option>All Leagues</option>
-<option>Premier League</option>
-<option>La Liga</option>
-<option>Serie A</option>
-<option>Bundesliga</option>
-<option>Ligue 1</option>
-<option>Eredivisie</option>
-<option>Champions League</option>
-<option>Europa League</option>
-<option>Conference League</option>
-<option>Portugal</option>
-<option>Scotland</option>
-<option>Turkey</option>
-<option>MLS</option>
-<option>Belgium</option>
-</select>
-
-<h2>📅 Fixtures</h2>
-<div class="card">
-<p>Football fixtures will appear here.</p>
-<p>Live scores will be added when a data source is connected.</p>
-</div>
-
-<button onclick="location.reload()">🔄 Refresh Page</button>
 </section>
 
-<footer style="text-align:center;padding:20px">
-<p>BOAZ FOOTBALL © 2026</p>
+<section id="predictions">
+<h2>🔥 Football Predictions</h2>
+<div class="card">
+<p>Arsenal vs Chelsea</p>
+<p class="prediction">Prediction: Arsenal Win</p>
+</div>
+<div class="card">
+<p>PSG vs Marseille</p>
+<p class="prediction">Prediction: PSG Win</p>
+</div>
+</section>
+
+<section id="leagues">
+<h2>🏆 Popular Leagues</h2>
+<div class="card">
+<p>English Premier League</p>
+<p>Spanish La Liga</p>
+<p>Italian Serie A</p>
+<p>German Bundesliga</p>
+<p>French Ligue 1</p>
+<p>UEFA Champions League</p>
+<p>UEFA Europa League</p>
+<p>UEFA Conference League</p>
+<p>Eredivisie</p>
+<p>Portuguese League</p>
+<p>Scottish Premiership</p>
+<p>Turkish Super Lig</p>
+<p>MLS</p>
+<p>Belgian Pro League</p>
+<p>Norwegian Eliteserien</p>
+</div>
+</section>
+
+<section id="scores">
+<h2>⚽ Live Football Scores</h2>
+<div class="card">
+<p>Live scores will appear here.</p>
+</div>
+</section>
+
+<section id="contact">
+<h2>📲 Contact BOAZ FOOTBALL</h2>
+<div class="card" style="text-align:center">
+<h3>Need more information?</h3>
+<p>Chat with us directly on WhatsApp.</p>
+<a class="whatsapp" href="https://wa.me/256777232502" target="_blank">
+📱 Message Us on WhatsApp
+</a>
+<p>WhatsApp: +256 777 232502</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<h3>⚽ BOAZ FOOTBALL</h3>
+<p>Your Home of Football Predictions</p>
+<p>© 2026 BOAZ FOOTBALL</p>
 </footer>
 
 </body>
