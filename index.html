@@ -1,45 +1,267 @@
-async function loadLeague(code) {
 
-    currentLeague = code;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOAZ FOOTBALL | Predictions</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#071426;color:white}
+header{background:#0d2340;padding:22px 12px;text-align:center;border-bottom:3px solid #16d68a}
+header h1{margin:0;color:#16d68a;font-size:27px}
+header p{margin:8px 0;color:#ddd}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px}
+button,select{background:#173653;color:white;border:1px solid #315574;border-radius:7px;padding:10px;cursor:pointer}
+button.active{background:#0caa70}
+main{max-width:1000px;margin:auto;padding:12px}
+h2{color:#16d68a}
+.panel{background:#10243b;border:1px solid #244461;border-radius:10px;padding:14px;margin:14px 0}
+.status{color:#16d68a;font-weight:bold}
+.match{background:#142d49;border-radius:9px;padding:14px;margin:12px 0}
+.teams{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:bold}
+.score{font-size:21px;color:#16d68a}
+.small{font-size:12px;color:#b9c9d8;margin-top:9px}
+.prediction{border-left:3px solid #16d68a;padding:10px;margin:9px 0;background:#142d49;border-radius:5px}
+.green{color:#16d68a}
+.red{color:#ff7676}
+#message{color:#ffc66d}
+footer{text-align:center;padding:25px;color:#b9c9d8}
+.whatsapp{display:inline-block;background:#16b85e;color:white;padding:13px 20px;border-radius:25px;text-decoration:none;font-weight:bold;margin:10px}
+</style>
+</head>
+<body>
 
-    const matches = document.getElementById('matches');
-    const status = document.getElementById('status');
+<header>
+<h1>⚽ BOAZ FOOTBALL</h1>
+<p>Your Home of Football Predictions</p>
+<p>LIVE SCORES | FIXTURES | PREDICTIONS</p>
+</header>
 
-    matches.innerHTML = '';
-    status.innerText = 'Loading football matches...';
+<nav>
+<button onclick="showTab('matches')" id="matchesBtn" class="active">⚽ Matches</button>
+<button onclick="showTab('predictions')" id="predictionsBtn">🎯 Predictions</button>
+<button onclick="showTab('leagues')" id="leaguesBtn">🏆 Leagues</button>
+</nav>
 
-    allMatches = [];
+<main>
+<section id="dashboard" class="panel">
+<h2>⚽ Football Dashboard</h2>
+<p id="count">Loading matches...</p>
+<p id="message">Connecting to football data...</p>
+<button onclick="loadMatches()">🔄 Refresh Matches</button>
+<p class="small">Times are displayed in your phone's local time.</p>
+</section>
 
-    const selected = code === 'ALL'
-        ? Object.keys(leagues)
-        : [code];
+<section id="matches">
+<h2>🔥 Football Matches</h2>
+<div id="matchList">Loading fixtures...</div>
+</section>
 
-    let failed = 0;
+<section id="predictions" style="display:none">
+<h2>🎯 Football Predictions</h2>
+<p>BOAZ FOOTBALL prediction centre.</p>
+<p class="small">Predictions are estimates, not guaranteed results.</p>
+<div id="predictionList">
+<p>Loading available predictions...</p>
+</div>
+</section>
 
-    const results = await Promise.all(
-        selected.map(async league => {
-            try {
-                return await fetchLeague(league);
-            } catch (error) {
-                console.error('League error:', league, error);
-                failed++;
-                return [];
-            }
-        })
-    );
+<section id="leagues" style="display:none">
+<h2>🏆 Available Leagues</h2>
+<div id="leagueList"></div>
+</section>
+</main>
 
-    allMatches = results.flat();
+<footer>
+<h3>⚽ BOAZ FOOTBALL © 2026</h3>
+<p>Football News | Live Scores | Match Predictions</p>
+<p>Powered by ESPN Football Data</p>
+<a class="whatsapp" href="https://wa.me/256777232502" target="_blank">
+Contact Us on WhatsApp
+</a>
+</footer>
 
-    if (allMatches.length === 0) {
-        status.innerText = 'No matches available. Please refresh.';
-        matches.innerHTML =
-            '<p>Football matches could not be loaded. Try again later.</p>';
-        return;
-    }
+<script>
+const leagues = [
+{name:"Premier League",id:"eng.1"},
+{name:"La Liga",id:"esp.1"},
+{name:"Serie A",id:"ita.1"},
+{name:"Bundesliga",id:"ger.1"},
+{name:"Ligue 1",id:"fra.1"},
+{name:"Eredivisie",id:"ned.1"},
+{name:"Eliteserien",id:"nor.1"},
+{name:"Champions League",id:"uefa.champions"},
+{name:"Europa League",id:"uefa.europa"},
+{name:"Conference League",id:"uefa.europa.conf"},
+{name:"Portugal",id:"por.1"},
+{name:"Scotland",id:"sco.1"},
+{name:"Turkey",id:"tur.1"},
+{name:"MLS",id:"usa.1"},
+{name:"Belgium",id:"bel.1"}
+];
 
-    status.innerText =
-        allMatches.length + ' matches found.' +
-        (failed > 0 ? ' Some leagues could not load.' : '');
+let allMatches=[];
+let selectedLeague="all";
+let selectedTab="matches";
 
-    displayMatches(allMatches);
+function showTab(tab){
+selectedTab=tab;
+["matches","predictions","leagues"].forEach(x=>{
+document.getElementById(x).style.display=x===tab?"block":"none";
+document.getElementById(x+"Btn").classList.toggle("active",x===tab);
+});
 }
+
+function localDate(d){
+return new Date(d).toLocaleString(undefined,{
+dateStyle:"medium",timeStyle:"short"
+});
+}
+
+function getDates(){
+const start=new Date();
+const end=new Date();
+end.setDate(end.getDate()+7);
+const fmt=d=>d.getFullYear()+
+String(d.getMonth()+1).padStart(2,"0")+
+String(d.getDate()).padStart(2,"0");
+return fmt(start)+"-"+fmt(end);
+}
+
+async function getLeagueMatches(league){
+const url="https://site.api.espn.com/apis/site/v2/sports/soccer/"+
+league.id+"/scoreboard?dates="+getDates();
+try{
+const response=await fetch(url);
+if(!response.ok)throw new Error("HTTP "+response.status);
+const data=await response.json();
+return {
+league:league.name,
+events:data.events||[],
+error:false
+};
+}catch(error){
+return {league:league.name,events:[],error:true};
+}
+}
+
+async function loadMatches(){
+const count=document.getElementById("count");
+const message=document.getElementById("message");
+const list=document.getElementById("matchList");
+count.textContent="Loading...";
+message.textContent="Checking football leagues...";
+list.innerHTML="Please wait while matches load...";
+
+const results=await Promise.all(leagues.map(getLeagueMatches));
+allMatches=[];
+let failed=0;
+
+results.forEach(result=>{
+if(result.error)failed++;
+result.events.forEach(event=>{
+const competition=event.competitions?.[0]||{};
+const competitors=competition.competitors||[];
+const home=competitors.find(t=>t.homeAway==="home");
+const away=competitors.find(t=>t.homeAway==="away");
+if(!home||!away)return;
+
+allMatches.push({
+id:event.id,
+league:result.league,
+home:home.team?.displayName||home.team?.name||"Home",
+away:away.team?.displayName||away.team?.name||"Away",
+homeScore:home.score,
+awayScore:away.score,
+date:event.date,
+status:event.status?.type?.description||"Scheduled",
+completed:event.status?.type?.completed||false,
+live:event.status?.type?.state==="in"
+});
+});
+});
+
+allMatches.sort((a,b)=>new Date(a.date)-new Date(b.date));
+
+count.textContent=allMatches.length+" matches found. "+
+failed+" leagues could not be loaded.";
+
+message.textContent=failed===leagues.length
+?"Football data connection unavailable. Check your internet connection."
+:failed>0
+?"Some leagues could not load. Other available leagues are displayed."
+:"Football data connected successfully.";
+
+renderMatches();
+renderPredictions();
+renderLeagues();
+}
+
+function renderMatches(){
+const list=document.getElementById("matchList");
+const matches=selectedLeague==="all"
+?allMatches:allMatches.filter(m=>m.league===selectedLeague);
+
+if(!matches.length){
+list.innerHTML="<p>No matches available for this selection.</p>";
+return;
+}
+
+list.innerHTML=matches.map(m=>`
+<div class="match">
+<div class="small">${m.league}</div>
+<div class="teams">
+<span>${m.home}</span>
+<span class="score">${m.homeScore??"-"} : ${m.awayScore??"-"}</span>
+<span>${m.away}</span>
+</div>
+<p class="small">${localDate(m.date)}</p>
+<p class="${m.live?"green":""}">${m.live?"🔴 LIVE":m.completed?"Finished":m.status}</p>
+</div>
+`).join("");
+}
+
+function renderPredictions(){
+const box=document.getElementById("predictionList");
+const upcoming=allMatches.filter(m=>!m.completed&&!m.live);
+
+if(!upcoming.length){
+box.innerHTML="<p>No upcoming matches available for predictions yet. Refresh when fixtures are available.</p>";
+return;
+}
+
+box.innerHTML=upcoming.map(m=>`
+<div class="match">
+<div class="small">${m.league} | ${localDate(m.date)}</div>
+<h3>${m.home} vs ${m.away}</h3>
+<div class="prediction">
+<strong>Prediction markets</strong>
+<p>Home Win (1) | Draw (X) | Away Win (2)</p>
+<p>Over 1.5 | Over 2.5 | Under 2.5 Goals</p>
+<p>Both Teams To Score | Double Chance</p>
+<p class="small">Statistical prediction pending verified team form and odds. No selection is issued without supporting data.</p>
+</div>
+</div>
+`).join("");
+}
+
+function renderLeagues(){
+document.getElementById("leagueList").innerHTML=`
+<button onclick="filterLeague('all')">All Leagues</button>
+`+leagues.map(l=>`
+<button onclick="filterLeague('${l.name}')">${l.name}</button>
+`).join("");
+}
+
+function filterLeague(name){
+selectedLeague=name;
+showTab("matches");
+renderMatches();
+}
+
+loadMatches();
+setInterval(loadMatches,5*60*1000);
+</script>
+</body>
+</html>
