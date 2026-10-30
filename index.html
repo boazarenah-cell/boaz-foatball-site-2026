@@ -1,157 +1,461 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boaz Football Predictions</title>
+
+<title>BOAZ FOOTBALL 2026</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#08111f;color:#fff;font-family:Arial,sans-serif}
-header{background:#0e9f6e;padding:24px 14px;text-align:center}
-header h1{margin:0;font-size:27px}
-header p{margin:8px 0 0}
-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px}
-button,select{padding:10px;border:0;border-radius:7px;font-weight:bold}
-button{background:#10b981;color:#062116}
-select{background:#17263a;color:white}
-main{max-width:900px;margin:auto;padding:12px}
-.notice{background:#17263a;padding:12px;border-radius:9px;font-size:13px;line-height:1.5}
-h2{color:#34d399;font-size:19px}
-.match{background:#132238;border:1px solid #263b54;padding:14px;border-radius:10px;margin:10px 0}
-.league{color:#34d399;font-size:12px;font-weight:bold}
-.teams{font-size:16px;font-weight:bold;margin:12px 0}
-.picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.pick{background:#20344c;padding:10px;border-radius:7px;font-size:13px}
-.pick b{display:block;color:#facc15;margin-top:5px}
-.small{color:#b8c7d9;font-size:12px;margin-top:10px}
-footer{text-align:center;padding:24px;color:#a7b6c8;font-size:12px}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: white;
+}
+
+header {
+    background: #008f5a;
+    text-align: center;
+    padding: 22px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 29px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+nav {
+    display: flex;
+    overflow-x: auto;
+    background: #10243d;
+    padding: 10px;
+    gap: 7px;
+}
+
+button {
+    cursor: pointer;
+}
+
+nav button {
+    background: #087e55;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 7px;
+    white-space: nowrap;
+}
+
+nav button:hover {
+    background: #00b879;
+}
+
+.container {
+    padding: 15px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    color: #00e68a;
+}
+
+.panel {
+    background: #142b46;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.match {
+    background: #203b59;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.match h3 {
+    margin-top: 5px;
+}
+
+.match p {
+    margin: 7px 0;
+}
+
+.live {
+    color: #ff5555;
+    font-weight: bold;
+}
+
+.upcoming {
+    color: #00e68a;
+}
+
+.finished {
+    color: #b8c5d6;
+}
+
+.prediction {
+    color: #ffdc55;
+    font-weight: bold;
+}
+
+.small {
+    color: #b8c5d6;
+    font-size: 13px;
+}
+
+#status {
+    color: #00e68a;
+}
+
+select {
+    background: #203b59;
+    color: white;
+    padding: 12px;
+    border: 1px solid #00a86b;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.refresh {
+    background: #00a86b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #10243d;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
 </style>
 </head>
+
 <body>
+
 <header>
 <h1>⚽ BOAZ FOOTBALL</h1>
-<p>Upcoming Fixtures & Match Predictions</p>
+<p>Your Home of Football Predictions</p>
+<p>LIVE SCORES | FIXTURES | PREDICTIONS</p>
 </header>
 
 <nav>
-<select id="league" onchange="render()">
-<option value="All">All Popular Leagues</option>
-<option>Premier League</option>
-<option>La Liga</option>
-<option>Bundesliga</option>
-<option>Serie A</option>
-<option>Ligue 1</option>
-<option>Eredivisie</option>
-<option>Championship</option>
-<option>Scottish Premiership</option>
-</select>
-<select id="day" onchange="render()">
-<option value="All">Saturday–Monday</option>
-<option>Saturday</option>
-<option>Sunday</option>
-<option>Monday</option>
-</select>
-<button onclick="render()">Show Matches</button>
+<button onclick="loadLeague('ALL')">All Leagues</button>
+<button onclick="loadLeague('eng.1')">Premier League</button>
+<button onclick="loadLeague('esp.1')">La Liga</button>
+<button onclick="loadLeague('ita.1')">Serie A</button>
+<button onclick="loadLeague('ger.1')">Bundesliga</button>
+<button onclick="loadLeague('fra.1')">Ligue 1</button>
+<button onclick="loadLeague('ned.1')">Eredivisie</button>
+<button onclick="loadLeague('nor.1')">Eliteserien</button>
+<button onclick="loadLeague('UEFA.CHAMPIONS')">Champions League</button>
+<button onclick="loadLeague('UEFA.EUROPA')">Europa League</button>
+<button onclick="loadLeague('UEFA.CONFERENCE')">Conference League</button>
+<button onclick="loadLeague('por.1')">Portugal</button>
+<button onclick="loadLeague('sco.1')">Scotland</button>
+<button onclick="loadLeague('tur.1')">Turkey</button>
+<button onclick="loadLeague('usa.1')">MLS</button>
+<button onclick="loadLeague('bel.1')">Belgium</button>
 </nav>
 
-<main>
-<div class="notice">
-📅 <b>31 October – 2 November 2026</b><br>
-Predictions are estimates, not guaranteed results. These are sample analytical picks, not live odds. Verify fixtures and team news before betting.
+<div class="container">
+
+<div class="panel">
+
+<h2>⚽ Football Dashboard</h2>
+
+<p id="status">Loading football matches...</p>
+
+<select id="filter" onchange="displayMatches()">
+<option value="ALL">All Matches</option>
+<option value="LIVE">Live Matches</option>
+<option value="UPCOMING">Upcoming Matches</option>
+<option value="FINISHED">Finished Matches</option>
+</select>
+
+<button class="refresh" onclick="loadLeague(currentLeague)">
+🔄 Refresh Matches
+</button>
+
+<p class="small">
+Times are displayed in your phone's local time.
+</p>
+
 </div>
+
+<h2>🔥 Football Matches</h2>
+
 <div id="matches"></div>
-</main>
+
+<h2>🎯 Football Predictions</h2>
+
+<div class="panel">
+
+<p>
+BOAZ FOOTBALL prediction centre.
+</p>
+
+<p>Available prediction markets:</p>
+
+<ul>
+<li>Home Win (1)</li>
+<li>Draw (X)</li>
+<li>Away Win (2)</li>
+<li>Over 1.5 Goals</li>
+<li>Over 2.5 Goals</li>
+<li>Under 2.5 Goals</li>
+<li>Both Teams To Score</li>
+<li>Double Chance</li>
+</ul>
+
+<p class="small">
+Predictions require reliable team statistics and odds.
+No guaranteed winning predictions are provided.
+</p>
+
+</div>
+
+</div>
 
 <footer>
-Boaz Football © 2026 · Football analysis for fans<br>
-Predictions can be wrong. Please gamble responsibly.
+<h3>BOAZ FOOTBALL © 2026</h3>
+<p>Football News | Live Scores | Match Predictions</p>
+<p>Powered by Football Data</p>
 </footer>
 
 <script>
-const games = [
-["Saturday","Premier League","Chelsea","Manchester United","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Premier League","Bournemouth","Leeds United","2-1","Home","Over 2.5","Yes"],
-["Saturday","Premier League","Brentford","Nottingham Forest","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Premier League","Coventry City","Sunderland","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Premier League","Hull City","Ipswich Town","1-2","Away","Over 2.5","Yes"],
-["Saturday","Premier League","Manchester City","Brighton","2-1","Home","Over 2.5","Yes"],
-["Saturday","Premier League","Tottenham","Crystal Palace","2-1","Home","Over 2.5","Yes"],
-["Saturday","Premier League","Aston Villa","Fulham","2-1","Home","Over 2.5","Yes"],
-["Sunday","Premier League","Liverpool","Arsenal","2-1","Home","Over 2.5","Yes"],
-["Monday","Premier League","Newcastle United","Everton","2-0","Home","Under 2.5","No"],
 
-["Saturday","La Liga","Levante","Atletico Madrid","0-2","Away","Under 2.5","No"],
-["Saturday","La Liga","Rayo Vallecano","Celta Vigo","1-1","Draw","Under 2.5","Yes"],
-["Saturday","La Liga","Real Betis","Malaga","2-0","Home","Under 2.5","No"],
-["Saturday","La Liga","Barcelona","Alaves","3-1","Home","Over 2.5","Yes"],
-["Sunday","La Liga","Getafe","Sevilla","1-1","Draw","Under 2.5","Yes"],
-["Sunday","La Liga","Racing","Real Madrid","1-2","Away","Over 2.5","Yes"],
-["Sunday","La Liga","Elche","Valencia","1-1","Draw","Under 2.5","Yes"],
-["Sunday","La Liga","Athletic Bilbao","Real Sociedad","1-1","Draw","Under 2.5","Yes"],
-["Monday","La Liga","Deportivo La Coruna","Osasuna","1-1","Draw","Under 2.5","Yes"],
+const leagues = {
 
-["Saturday","Bundesliga","Augsburg","Freiburg","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Bundesliga","Bayer Leverkusen","Stuttgart","2-1","Home","Over 2.5","Yes"],
-["Saturday","Bundesliga","Borussia Monchengladbach","Paderborn","2-1","Home","Over 2.5","Yes"],
-["Saturday","Bundesliga","Schalke","RB Leipzig","1-2","Away","Over 2.5","Yes"],
-["Saturday","Bundesliga","Werder Bremen","Hoffenheim","2-1","Home","Over 2.5","Yes"],
-["Saturday","Bundesliga","Bayern Munich","Borussia Dortmund","3-2","Home","Over 2.5","Yes"],
+'eng.1': 'English Premier League',
+'esp.1': 'Spanish La Liga',
+'ita.1': 'Italian Serie A',
+'ger.1': 'German Bundesliga',
+'fra.1': 'French Ligue 1',
+'ned.1': 'Dutch Eredivisie',
+'nor.1': 'Norwegian Eliteserien',
+'UEFA.CHAMPIONS': 'UEFA Champions League',
+'UEFA.EUROPA': 'UEFA Europa League',
+'UEFA.CONFERENCE': 'UEFA Conference League',
+'por.1': 'Portuguese Primeira Liga',
+'sco.1': 'Scottish Premiership',
+'tur.1': 'Turkish Super Lig',
+'usa.1': 'Major League Soccer',
+'bel.1': 'Belgian Pro League'
 
-["Saturday","Serie A","Bologna","Monza","1-0","Home","Under 2.5","No"],
-["Saturday","Serie A","Udinese","Roma","1-2","Away","Over 2.5","Yes"],
-["Saturday","Serie A","AC Milan","Inter","1-1","Draw","Under 2.5","Yes"],
+};
 
-["Friday","Ligue 1","Le Havre","PSG","0-2","Away","Under 2.5","No"],
-["Friday","Ligue 1","Nice","Rennes","1-1","Draw","Under 2.5","Yes"],
-["Friday","Ligue 1","Lille","Lens","2-1","Home","Over 2.5","Yes"],
-["Saturday","Ligue 1","Lorient","Brest","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Ligue 1","Lyon","Angers","2-0","Home","Under 2.5","No"],
+let currentLeague = 'ALL';
+let allMatches = [];
 
-["Saturday","Championship","Lincoln City","Birmingham City","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Championship","Norwich City","Watford","2-1","Home","Over 2.5","Yes"],
-["Saturday","Championship","Stoke City","Preston","1-0","Home","Under 2.5","No"],
-["Saturday","Championship","Southampton","QPR","2-1","Home","Over 2.5","Yes"],
-["Saturday","Championship","Swansea","Blackburn","1-1","Draw","Under 2.5","Yes"],
+function getDateRange() {
 
-["Saturday","Scottish Premiership","Kilmarnock","St Johnstone","1-1","Draw","Under 2.5","Yes"],
-["Saturday","Scottish Premiership","Motherwell","St Mirren","2-1","Home","Over 2.5","Yes"]
-];
+    const today = new Date();
 
-function render(){
- const league=document.getElementById("league").value;
- const day=document.getElementById("day").value;
- const filtered=games.filter(g=>
-   (league==="All"||g[1]===league)&&
-   (day==="All"||g[0]===day)
- );
- const root=document.getElementById("matches");
- if(!filtered.length){
-  root.innerHTML="<p>No listed matches for this filter. Check an updated fixture source.</p>";
-  return;
- }
- let html="";
- let previous="";
- filtered.forEach(g=>{
-  if(g[0]!==previous){
-   html+="<h2>"+g[0]+", "+(g[0]==="Saturday"?"31 October":g[0]==="Sunday"?"1 November":"2 November")+"</h2>";
-   previous=g[0];
-  }
-  html+=`<article class="match">
-  <div class="league">${g[1]}</div>
-  <div class="teams">${g[2]} vs ${g[3]}</div>
-  <div class="picks">
-   <div class="pick">Predicted score<b>${g[4]}</b></div>
-   <div class="pick">1X2 selection<b>${g[5]}</b></div>
-   <div class="pick">Goals 2.5<b>${g[6]}</b></div>
-   <div class="pick">Both teams score<b>${g[7]}</b></div>
-  </div>
-  <div class="small">Estimated prediction · Not a guaranteed outcome</div>
-  </article>`;
- });
- root.innerHTML=html;
+    const start = new Date(today);
+    start.setDate(today.getDate() - 2);
+
+    const end = new Date(today);
+    end.setDate(today.getDate() + 7);
+
+    function format(date) {
+        return date.toISOString()
+            .slice(0,10)
+            .replaceAll('-', '');
+    }
+
+    return format(start) + '-' + format(end);
 }
-render();
+
+async function fetchLeague(code) {
+
+    const url =
+    'https://site.api.espn.com/apis/site/v2/sports/soccer/' +
+    code + '/scoreboard?dates=' + getDateRange();
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error('Unable to load ' + leagues[code]);
+    }
+
+    const data = await response.json();
+
+    return (data.events || []).map(event => {
+
+        const competition = event.competitions[0];
+
+        const home = competition.competitors.find(
+            team => team.homeAway === 'home'
+        );
+
+        const away = competition.competitors.find(
+            team => team.homeAway === 'away'
+        );
+
+        const state = event.status.type.state;
+
+        let status = 'UPCOMING';
+
+        if (state === 'in') {
+            status = 'LIVE';
+        } else if (state === 'post') {
+            status = 'FINISHED';
+        }
+
+        return {
+            id: code + '-' + event.id,
+            league: leagues[code],
+            home: home ? home.team.displayName : 'Home',
+            away: away ? away.team.displayName : 'Away',
+            homeScore: home?.score ?? '-',
+            awayScore: away?.score ?? '-',
+            date: event.date,
+            status: status,
+            clock: event.status.displayClock,
+            stateText: event.status.type.shortDetail
+        };
+
+    });
+
+}
+
+async function loadLeague(code) {
+
+    currentLeague = code;
+
+    const matches = document.getElementById('matches');
+    const status = document.getElementById('status');
+
+    matches.innerHTML = '';
+
+    status.innerText = 'Loading football matches...';
+
+    allMatches = [];
+
+    const selected = code === 'ALL'
+        ? Object.keys(leagues)
+        : [code];
+
+    let failed = 0;
+
+    const results = await Promise.all(
+        selected.map(async league => {
+            try {
+                return await fetchLeague(league);
+            } catch (error) {
+                failed++;
+                return [];
+            }
+        })
+    );
+
+    allMatches = results.flat();
+
+    allMatches.sort((a, b) =>
+        new Date(a.date) - new Date(b.date)
+    );
+
+    displayMatches();
+
+    status.innerText =
+        allMatches.length + ' matches found. ' +
+        failed + ' leagues could not be loaded.';
+
+}
+
+function displayMatches() {
+
+    const container = document.getElementById('matches');
+
+    container.innerHTML = '';
+
+    const filter = document.getElementById('filter').value;
+
+    const selected = allMatches.filter(match =>
+        filter === 'ALL' || match.status === filter
+    );
+
+    if (selected.length === 0) {
+
+        container.innerHTML =
+        '<div class="panel">No matches available for this selection.</div>';
+
+        return;
+    }
+
+    selected.forEach(match => {
+
+        const date = new Date(match.date);
+
+        const div = document.createElement('div');
+
+        div.className = 'match';
+
+        const league = document.createElement('p');
+        league.className = 'small';
+        league.textContent = match.league;
+
+        const title = document.createElement('h3');
+        title.textContent = match.home + ' vs ' + match.away;
+
+        const score = document.createElement('p');
+        score.textContent =
+            match.homeScore + ' - ' + match.awayScore;
+
+        const time = document.createElement('p');
+        time.textContent = date.toLocaleString();
+
+        const state = document.createElement('p');
+
+        state.className =
+            match.status.toLowerCase();
+
+        state.textContent =
+            match.status === 'LIVE'
+            ? '🔴 LIVE ' + match.clock
+            : match.status === 'FINISHED'
+            ? 'FULL TIME'
+            : 'UPCOMING';
+
+        const prediction = document.createElement('p');
+
+        prediction.className = 'prediction';
+
+        prediction.textContent =
+            'Prediction: No verified prediction available yet.';
+
+        div.append(
+            league,
+            title,
+            score,
+            time,
+            state,
+            prediction
+        );
+
+        container.appendChild(div);
+
+    });
+
+}
+
+loadLeague('ALL');
+
 </script>
+
 </body>
 </html>
