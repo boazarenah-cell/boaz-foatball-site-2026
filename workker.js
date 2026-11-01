@@ -14,7 +14,6 @@ export default {
       );
 
       return new Response(await response.text(), {
-        status: response.status,
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
@@ -22,6 +21,6 @@ export default {
       });
     }
 
-    return new Response("BOAZ FOOTBALL API is running!");
+    return env.ASSETS.fetch(request);
   }
 };
