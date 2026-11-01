@@ -1,4 +1,4 @@
-hello from boaz football workers
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -14,6 +14,7 @@ export default {
       );
 
       return new Response(await response.text(), {
+        status: response.status,
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
