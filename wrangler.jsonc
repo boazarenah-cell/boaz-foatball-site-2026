@@ -1,7 +1,6 @@
-
 {
   "name": "boaz-foatball-site-2026",
-  "main": "src/index.js",
+  "main": "worker.js",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./",
