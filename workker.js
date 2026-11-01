@@ -14,6 +14,7 @@ export default {
       );
 
       return new Response(await response.text(), {
+        status: response.status,
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
