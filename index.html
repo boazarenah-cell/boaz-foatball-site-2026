@@ -1,116 +1,212 @@
-  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BOAZ FOOTBALL</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#071426;color:white}
-header{background:#0d2038;padding:22px;text-align:center}
-header h1{color:#00e676;margin:0}
-nav{background:#102b48;padding:14px;text-align:center}
-nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
-main{padding:15px;max-width:900px;margin:auto}
-h2{color:#00e676;border-bottom:1px solid #29435e;padding-bottom:10px}
-.card{background:#102b48;padding:16px;margin:12px 0;border-radius:10px}
-.match{text-align:center;font-size:17px;font-weight:bold}
-.tag{color:#00e676;font-size:13px}
-.prediction{color:#ffd54f;font-weight:bold}
-.whatsapp{display:inline-block;background:#25D366;color:white;padding:13px 22px;text-decoration:none;border-radius:8px;font-weight:bold}
-footer{text-align:center;background:#0d2038;padding:20px;margin-top:30px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOAZ FOOTBALL</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 35px 10px;
+      background: linear-gradient(135deg,#142238,#080d18);
+      border-radius: 15px;
+      margin-bottom: 25px;
+    }
+    .hero h2 {font-size: 30px;}
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    .tabs button {flex: 1;}
+    .match {
+      background: #142238;
+      border: 1px solid #263a55;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 13px;
+    }
+    .teams {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .teams span {flex: 1;}
+    .match small {
+      display: block;
+      color: #aab7c7;
+      margin-bottom: 12px;
+    }
+    .status {color: #00e676; font-weight: bold;}
+    #message {color: #aab7c7; padding: 15px 0;}
+  </style>
 </head>
 <body>
 
 <header>
-<h1>⚽ BOAZ FOOTBALL</h1>
-<p>Your Home of Football Predictions</p>
-<p>LIVE SCORES | FIXTURES | PREDICTIONS</p>
+  <h1>⚽ BOAZ FOOTBALL</h1>
+  <p>Your home of football action</p>
 </header>
 
 <nav>
-<a href="#matches">Matches</a>
-<a href="#predictions">Predictions</a>
-<a href="#leagues">Leagues</a>
-<a href="#scores">Live Scores</a>
-<a href="#contact">Contact</a>
+  <a href="#home">Home</a>
+  <a href="#matches">Matches</a>
+  <a href="#leagues">Leagues</a>
+  <a href="#about">About</a>
 </nav>
 
-<main>
+<main id="home">
 
-<section id="matches">
-<h2>📅 Upcoming Matches</h2>
-<div class="card match">
-<p>Arsenal vs Chelsea</p>
-<span class="tag">Upcoming Match</span>
-</div>
-<div class="card match">
-<p>PSG vs Marseille</p>
-<span class="tag">Upcoming Match</span>
-</div>
-</section>
+  <section class="hero">
+    <h2>WELCOME TO BOAZ FOOTBALL</h2>
+    <p>Live scores • Fixtures • Football updates</p>
+    <br>
+    <button onclick="loadMatches()">Refresh Matches</button>
+  </section>
 
-<section id="predictions">
-<h2>🔥 Football Predictions</h2>
-<div class="card">
-<p>Arsenal vs Chelsea</p>
-<p class="prediction">Prediction: Arsenal Win</p>
-</div>
-<div class="card">
-<p>PSG vs Marseille</p>
-<p class="prediction">Prediction: PSG Win</p>
-</div>
-</section>
+  <section id="matches">
+    <h2>⚡ Football Matches</h2>
 
-<section id="leagues">
-<h2>🏆 Popular Leagues</h2>
-<div class="card">
-<p>English Premier League</p>
-<p>Spanish La Liga</p>
-<p>Italian Serie A</p>
-<p>German Bundesliga</p>
-<p>French Ligue 1</p>
-<p>UEFA Champions League</p>
-<p>UEFA Europa League</p>
-<p>UEFA Conference League</p>
-<p>Eredivisie</p>
-<p>Portuguese League</p>
-<p>Scottish Premiership</p>
-<p>Turkish Super Lig</p>
-<p>MLS</p>
-<p>Belgian Pro League</p>
-<p>Norwegian Eliteserien</p>
-</div>
-</section>
+    <div class="tabs">
+      <button onclick="loadMatches()">All Matches</button>
+      <button onclick="showStatus('LIVE')">Live</button>
+      <button onclick="showStatus('SCHEDULED')">Upcoming</button>
+      <button onclick="showStatus('FINISHED')">Finished</button>
+    </div>
 
-<section id="scores">
-<h2>⚽ Live Football Scores</h2>
-<div class="card">
-<p>Live scores will appear here.</p>
-</div>
-</section>
+    <div id="message">Loading matches...</div>
+    <div id="match-list"></div>
+  </section>
 
-<section id="contact">
-<h2>📲 Contact BOAZ FOOTBALL</h2>
-<div class="card" style="text-align:center">
-<h3>Need more information?</h3>
-<p>Chat with us directly on WhatsApp.</p>
-<a class="whatsapp" href="https://wa.me/256777232502" target="_blank">
-📱 Message Us on WhatsApp
-</a>
-<p>WhatsApp: +256 777 232502</p>
-</div>
-</section>
+  <section id="leagues">
+    <h2>🏆 Popular Leagues</h2>
+    <div class="match-card">English Premier League</div>
+    <div class="match-card">UEFA Champions League</div>
+    <div class="match-card">La Liga</div>
+    <div class="match-card">Bundesliga</div>
+    <div class="match-card">Serie A</div>
+    <div class="match-card">Ligue 1</div>
+  </section>
+
+  <section id="about">
+    <h2>About BOAZ FOOTBALL</h2>
+    <div class="match-card">
+      <p>BOAZ FOOTBALL brings you football scores,
+      fixtures and updates in one place.</p>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-<h3>⚽ BOAZ FOOTBALL</h3>
-<p>Your Home of Football Predictions</p>
-<p>© 2026 BOAZ FOOTBALL</p>
+  <h3>⚽ BOAZ FOOTBALL</h3>
+  <p>Football lives here.</p>
+  <p>© 2026 BOAZ FOOTBALL. All rights reserved.</p>
 </footer>
+
+<script>
+let allMatches = [];
+
+async function loadMatches() {
+  const message = document.getElementById("message");
+  const list = document.getElementById("match-list");
+
+  message.textContent = "Loading football matches...";
+  list.innerHTML = "";
+
+  try {
+    const response = await fetch("/api/matches");
+
+    if (!response.ok) {
+      throw new Error("Could not load matches");
+    }
+
+    const data = await response.json();
+    allMatches = data.matches || [];
+
+    displayMatches(allMatches);
+
+    if (allMatches.length === 0) {
+      message.textContent = "No matches available right now.";
+    } else {
+      message.textContent = allMatches.length + " matches found.";
+    }
+
+  } catch (error) {
+    message.textContent =
+      "Unable to load matches. Please try again later.";
+  }
+}
+
+function displayMatches(matches) {
+  const list = document.getElementById("match-list");
+  list.innerHTML = "";
+
+  matches.forEach(match => {
+    const home = match.homeTeam?.name || "Home";
+    const away = match.awayTeam?.name || "Away";
+    const homeScore = match.score?.fullTime?.home;
+    const awayScore = match.score?.fullTime?.away;
+    const score = homeScore !== null && homeScore !== undefined
+      ? homeScore + " - " + awayScore
+      : "VS";
+
+    const date = match.utcDate
+      ? new Date(match.utcDate).toLocaleString()
+      : "Date unavailable";
+
+    const card = document.createElement("div");
+    card.className = "match";
+
+    const league = document.createElement("small");
+    league.textContent = match.competition?.name || "Football";
+
+    const teams = document.createElement("div");
+    teams.className = "teams";
+
+    const homeName = document.createElement("span");
+    homeName.textContent = home;
+
+    const scoreText = document.createElement("strong");
+    scoreText.className = "score";
+    scoreText.textContent = score;
+
+    const awayName = document.createElement("span");
+    awayName.textContent = away;
+
+    teams.append(homeName, scoreText, awayName);
+
+    const time = document.createElement("small");
+    time.textContent = date;
+
+    const status = document.createElement("p");
+    status.className = "status";
+    status.textContent = match.status || "UNKNOWN";
+
+    card.append(league, teams, time, status);
+    list.appendChild(card);
+  });
+}
+
+function showStatus(status) {
+  const filtered = allMatches.filter(match =>
+    match.status === status
+  );
+
+  displayMatches(filtered);
+
+  document.getElementById("message").textContent =
+    filtered.length + " matches found.";
+}
+
+loadMatches();
+</script>
 
 </body>
 </html>
