@@ -1,212 +1,116 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOAZ FOOTBALL</title>
-  <link rel="stylesheet" href="style.css">
+<section id="ucl-predictions">
   <style>
-    .hero {
-      text-align: center;
-      padding: 35px 10px;
-      background: linear-gradient(135deg,#142238,#080d18);
-      border-radius: 15px;
-      margin-bottom: 25px;
+    #ucl-predictions {
+      background: #101827;
+      color: white;
+      padding: 20px;
+      border-radius: 14px;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
     }
-    .hero h2 {font-size: 30px;}
-    .tabs {
+    #ucl-predictions h2 {
+      color: #f5c542;
+      text-align: center;
+    }
+    #ucl-predictions .ucl-tabs {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
-      margin: 15px 0;
+      margin: 18px 0;
     }
-    .tabs button {flex: 1;}
-    .match {
-      background: #142238;
-      border: 1px solid #263a55;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 13px;
+    #ucl-predictions button {
+      flex: 1;
+      padding: 12px;
+      border: 0;
+      border-radius: 8px;
+      background: #29364b;
+      color: white;
+      font-weight: bold;
     }
-    .teams {
+    #ucl-predictions button.active {
+      background: #f5c542;
+      color: #101827;
+    }
+    #ucl-predictions .ucl-match {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      text-align: center;
+      gap: 8px;
+      background: #1d293b;
+      padding: 13px;
+      margin: 9px 0;
+      border-radius: 9px;
+      font-size: 13px;
+    }
+    #ucl-predictions .ucl-score {
+      color: #f5c542;
+      font-size: 17px;
       font-weight: bold;
+      white-space: nowrap;
     }
-    .teams span {flex: 1;}
-    .match small {
-      display: block;
-      color: #aab7c7;
-      margin-bottom: 12px;
+    #ucl-predictions .ucl-hidden {
+      display: none;
     }
-    .status {color: #00e676; font-weight: bold;}
-    #message {color: #aab7c7; padding: 15px 0;}
+    #ucl-predictions small {
+      color: #aebbd0;
+    }
   </style>
-</head>
-<body>
 
-<header>
-  <h1>⚽ BOAZ FOOTBALL</h1>
-  <p>Your home of football action</p>
-</header>
+  <h2>🏆 CHAMPIONS LEAGUE</h2>
+  <p style="text-align:center">BOAZ FOOTBALL MATCH PREDICTIONS</p>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#matches">Matches</a>
-  <a href="#leagues">Leagues</a>
-  <a href="#about">About</a>
-</nav>
+  <div class="ucl-tabs">
+    <button class="active" onclick="uclShow('tuesday',this)">
+      TUESDAY 3
+    </button>
+    <button onclick="uclShow('wednesday',this)">
+      WEDNESDAY 4
+    </button>
+  </div>
 
-<main id="home">
+  <div id="ucl-tuesday">
+    <small>Tuesday, November 3, 2026</small>
+    <div class="ucl-match">Shakhtar vs Sporting <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">Galatasaray vs Stuttgart <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">Atletico Madrid vs Bayern <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">Barcelona vs Aston Villa <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">Feyenoord vs Inter <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">Bodo/Glimt vs Lille <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">LASK vs Slovan Bratislava <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">Man United vs Roma <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">Villarreal vs PSG <span class="ucl-score">1 - 2</span></div>
+  </div>
 
-  <section class="hero">
-    <h2>WELCOME TO BOAZ FOOTBALL</h2>
-    <p>Live scores • Fixtures • Football updates</p>
-    <br>
-    <button onclick="loadMatches()">Refresh Matches</button>
-  </section>
+  <div id="ucl-wednesday" class="ucl-hidden">
+    <small>Wednesday, November 4, 2026</small>
+    <div class="ucl-match">AEK Athens vs Real Madrid <span class="ucl-score">0 - 2</span></div>
+    <div class="ucl-match">Fenerbahce vs Liverpool <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">Dortmund vs Real Betis <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">Porto vs Napoli <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">PSV vs Club Brugge <span class="ucl-score">2 - 1</span></div>
+    <div class="ucl-match">Leipzig vs Man City <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">Lens vs Como <span class="ucl-score">1 - 1</span></div>
+    <div class="ucl-match">Slavia Prague vs Arsenal <span class="ucl-score">1 - 2</span></div>
+    <div class="ucl-match">Viking vs Sabah <span class="ucl-score">2 - 0</span></div>
+  </div>
 
-  <section id="matches">
-    <h2>⚡ Football Matches</h2>
+  <p style="text-align:center;color:#aebbd0;font-size:11px">
+    BOAZ FOOTBALL • Predictions are opinions, not guaranteed results.
+  </p>
 
-    <div class="tabs">
-      <button onclick="loadMatches()">All Matches</button>
-      <button onclick="showStatus('LIVE')">Live</button>
-      <button onclick="showStatus('SCHEDULED')">Upcoming</button>
-      <button onclick="showStatus('FINISHED')">Finished</button>
-    </div>
+  <script>
+    function uclShow(day, button) {
+      document.getElementById('ucl-tuesday').classList.toggle(
+        'ucl-hidden', day !== 'tuesday'
+      );
+      document.getElementById('ucl-wednesday').classList.toggle(
+        'ucl-hidden', day !== 'wednesday'
+      );
 
-    <div id="message">Loading matches...</div>
-    <div id="match-list"></div>
-  </section>
+      document.querySelectorAll('#ucl-predictions .ucl-tabs button')
+        .forEach(b => b.classList.remove('active'));
 
-  <section id="leagues">
-    <h2>🏆 Popular Leagues</h2>
-    <div class="match-card">English Premier League</div>
-    <div class="match-card">UEFA Champions League</div>
-    <div class="match-card">La Liga</div>
-    <div class="match-card">Bundesliga</div>
-    <div class="match-card">Serie A</div>
-    <div class="match-card">Ligue 1</div>
-  </section>
-
-  <section id="about">
-    <h2>About BOAZ FOOTBALL</h2>
-    <div class="match-card">
-      <p>BOAZ FOOTBALL brings you football scores,
-      fixtures and updates in one place.</p>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <h3>⚽ BOAZ FOOTBALL</h3>
-  <p>Football lives here.</p>
-  <p>© 2026 BOAZ FOOTBALL. All rights reserved.</p>
-</footer>
-
-<script>
-let allMatches = [];
-
-async function loadMatches() {
-  const message = document.getElementById("message");
-  const list = document.getElementById("match-list");
-
-  message.textContent = "Loading football matches...";
-  list.innerHTML = "";
-
-  try {
-    const response = await fetch("/api/matches");
-
-    if (!response.ok) {
-      throw new Error("Could not load matches");
+      button.classList.add('active');
     }
-
-    const data = await response.json();
-    allMatches = data.matches || [];
-
-    displayMatches(allMatches);
-
-    if (allMatches.length === 0) {
-      message.textContent = "No matches available right now.";
-    } else {
-      message.textContent = allMatches.length + " matches found.";
-    }
-
-  } catch (error) {
-    message.textContent =
-      "Unable to load matches. Please try again later.";
-  }
-}
-
-function displayMatches(matches) {
-  const list = document.getElementById("match-list");
-  list.innerHTML = "";
-
-  matches.forEach(match => {
-    const home = match.homeTeam?.name || "Home";
-    const away = match.awayTeam?.name || "Away";
-    const homeScore = match.score?.fullTime?.home;
-    const awayScore = match.score?.fullTime?.away;
-    const score = homeScore !== null && homeScore !== undefined
-      ? homeScore + " - " + awayScore
-      : "VS";
-
-    const date = match.utcDate
-      ? new Date(match.utcDate).toLocaleString()
-      : "Date unavailable";
-
-    const card = document.createElement("div");
-    card.className = "match";
-
-    const league = document.createElement("small");
-    league.textContent = match.competition?.name || "Football";
-
-    const teams = document.createElement("div");
-    teams.className = "teams";
-
-    const homeName = document.createElement("span");
-    homeName.textContent = home;
-
-    const scoreText = document.createElement("strong");
-    scoreText.className = "score";
-    scoreText.textContent = score;
-
-    const awayName = document.createElement("span");
-    awayName.textContent = away;
-
-    teams.append(homeName, scoreText, awayName);
-
-    const time = document.createElement("small");
-    time.textContent = date;
-
-    const status = document.createElement("p");
-    status.className = "status";
-    status.textContent = match.status || "UNKNOWN";
-
-    card.append(league, teams, time, status);
-    list.appendChild(card);
-  });
-}
-
-function showStatus(status) {
-  const filtered = allMatches.filter(match =>
-    match.status === status
-  );
-
-  displayMatches(filtered);
-
-  document.getElementById("message").textContent =
-    filtered.length + " matches found.";
-}
-
-loadMatches();
-</script>
-
-</body>
-</html>
+  </script>
+</section>
