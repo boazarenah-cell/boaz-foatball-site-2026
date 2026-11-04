@@ -1,116 +1,29 @@
-
-<section id="ucl-predictions">
-  <style>
-    #ucl-predictions {
-      background: #101827;
-      color: white;
-      padding: 20px;
-      border-radius: 14px;
-      margin: 20px 0;
-      font-family: Arial, sans-serif;
-    }
-    #ucl-predictions h2 {
-      color: #f5c542;
-      text-align: center;
-    }
-    #ucl-predictions .ucl-tabs {
-      display: flex;
-      gap: 10px;
-      margin: 18px 0;
-    }
-    #ucl-predictions button {
-      flex: 1;
-      padding: 12px;
-      border: 0;
-      border-radius: 8px;
-      background: #29364b;
-      color: white;
-      font-weight: bold;
-    }
-    #ucl-predictions button.active {
-      background: #f5c542;
-      color: #101827;
-    }
-    #ucl-predictions .ucl-match {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      background: #1d293b;
-      padding: 13px;
-      margin: 9px 0;
-      border-radius: 9px;
-      font-size: 13px;
-    }
-    #ucl-predictions .ucl-score {
-      color: #f5c542;
-      font-size: 17px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-    #ucl-predictions .ucl-hidden {
-      display: none;
-    }
-    #ucl-predictions small {
-      color: #aebbd0;
-    }
-  </style>
-
+<!-- CHAMPIONS LEAGUE PREDICTIONS -->
+<section id="champions-league" class="predictions">
   <h2>🏆 CHAMPIONS LEAGUE</h2>
-  <p style="text-align:center">BOAZ FOOTBALL MATCH PREDICTIONS</p>
+  <h3>BOAZ FOOTBALL MATCH PREDICTIONS</h3>
+  <h4>Wednesday, November 4, 2026</h4>
 
-  <div class="ucl-tabs">
-    <button class="active" onclick="uclShow('tuesday',this)">
-      TUESDAY 3
-    </button>
-    <button onclick="uclShow('wednesday',this)">
-      WEDNESDAY 4
-    </button>
-  </div>
+  <div class="match">AEK Athens vs Real Madrid <strong>1 - 2</strong></div>
+  <div class="match">Fenerbahçe vs Liverpool <strong>1 - 2</strong></div>
+  <div class="match">Dortmund vs Real Betis <strong>2 - 1</strong></div>
+  <div class="match">Porto vs Napoli <strong>1 - 1</strong></div>
+  <div class="match">PSV vs Club Brugge <strong>2 - 1</strong></div>
+  <div class="match">Leipzig vs Man City <strong>1 - 2</strong></div>
+  <div class="match">Lens vs Como <strong>2 - 1</strong></div>
+  <div class="match">Slavia Prague vs Arsenal <strong>1 - 2</strong></div>
+  <div class="match">Viking vs Sabah <strong>2 - 0</strong></div>
 
-  <div id="ucl-tuesday">
-    <small>Tuesday, November 3, 2026</small>
-    <div class="ucl-match">Shakhtar vs Sporting <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">Galatasaray vs Stuttgart <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">Atletico Madrid vs Bayern <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">Barcelona vs Aston Villa <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">Feyenoord vs Inter <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">Bodo/Glimt vs Lille <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">LASK vs Slovan Bratislava <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">Man United vs Roma <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">Villarreal vs PSG <span class="ucl-score">1 - 2</span></div>
-  </div>
-
-  <div id="ucl-wednesday" class="ucl-hidden">
-    <small>Wednesday, November 4, 2026</small>
-    <div class="ucl-match">AEK Athens vs Real Madrid <span class="ucl-score">0 - 2</span></div>
-    <div class="ucl-match">Fenerbahce vs Liverpool <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">Dortmund vs Real Betis <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">Porto vs Napoli <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">PSV vs Club Brugge <span class="ucl-score">2 - 1</span></div>
-    <div class="ucl-match">Leipzig vs Man City <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">Lens vs Como <span class="ucl-score">1 - 1</span></div>
-    <div class="ucl-match">Slavia Prague vs Arsenal <span class="ucl-score">1 - 2</span></div>
-    <div class="ucl-match">Viking vs Sabah <span class="ucl-score">2 - 0</span></div>
-  </div>
-
-  <p style="text-align:center;color:#aebbd0;font-size:11px">
-    BOAZ FOOTBALL • Predictions are opinions, not guaranteed results.
-  </p>
-
-  <script>
-    function uclShow(day, button) {
-      document.getElementById('ucl-tuesday').classList.toggle(
-        'ucl-hidden', day !== 'tuesday'
-      );
-      document.getElementById('ucl-wednesday').classList.toggle(
-        'ucl-hidden', day !== 'wednesday'
-      );
-
-      document.querySelectorAll('#ucl-predictions .ucl-tabs button')
-        .forEach(b => b.classList.remove('active'));
-
-      button.classList.add('active');
-    }
-  </script>
+  <p>Predictions are opinions, not guaranteed results.</p>
 </section>
+
+<!-- CONTACT FOOTER -->
+<footer style="background:#111;color:white;text-align:center;padding:25px;margin-top:30px;">
+  <h2>⚽ BOAZ FOOTBALL</h2>
+  <h3>Contact Us</h3>
+  <a href="https://wa.me/256777232502"
+     style="color:#25D366;font-weight:bold;text-decoration:none;">
+     💬 Chat with us on WhatsApp
+  </a>
+  <p>© 2026 BOAZ FOOTBALL. All rights reserved.</p>
+</footer>
