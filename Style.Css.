@@ -1,110 +1,49 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
+/* BOAZ FOOTBALL - PERMANENT DESIGN */
 
 body {
-  font-family: Arial, sans-serif;
   background: #080d18;
   color: #ffffff;
-  font-size: 20px;
-  line-height: 1.7;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
 }
 
 header {
   background: #101a2b;
-  padding: 25px 12px;
-  text-align: center;
-  border-bottom: 3px solid #00e676;
+  border-bottom: 2px solid #00ff41;
 }
 
 header h1 {
-  font-size: 34px;
-  color: #00e676;
+  color: #00ff41;
+  font-size: 32px;
   font-weight: 900;
 }
 
-h2 {
-  font-size: 28px;
-  color: #00e676;
-  margin: 22px 0 12px;
-}
-
-h3 {
-  font-size: 24px;
-  color: #00e676;
-  margin: 18px 0 10px;
-}
-
-main {
-  padding: 15px;
-}
-
-section {
-  background: #101a2b;
-  padding: 18px;
-  margin: 18px 0;
+.match-card {
+  background: #142238;
+  border: 2px solid #087a35;
   border-radius: 12px;
-  border: 1px solid #26364d;
+  padding: 18px;
+  margin: 15px 0;
 }
 
-.match {
-  font-size: 21px;
-  font-weight: bold;
-  padding: 14px 10px;
-  margin: 10px 0;
-  background: #17263a;
-  border-left: 5px solid #00e676;
-  border-radius: 7px;
-}
-
-.prediction {
-  color: #00e676;
-  font-size: 22px;
+.match-card h3,
+.match-card .teams {
+  color: #ffffff;
+  font-size: 23px;
   font-weight: 900;
 }
 
-button {
-  background: #00e676;
-  color: #080d18;
-  font-size: 20px;
+.score {
+  color: #00ff41;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.prediction,
+.odds,
+.stats {
+  color: #69ff8c;
+  font-size: 18px;
   font-weight: bold;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-}
-
-footer {
-  background: #101a2b;
-  text-align: center;
-  padding: 25px 12px;
-  margin-top: 30px;
-  border-top: 3px solid #00e676;
-  font-size: 19px;
-}
-
-footer a {
-  color: #00e676;
-  font-size: 21px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 20px;
-  }
-
-  header h1 {
-    font-size: 30px;
-  }
-
-  h2 {
-    font-size: 26px;
-  }
-
-  .match {
-    font-size: 20px;
-  }
 }
