@@ -1,44 +1,102 @@
-/* STRONG GREEN FOOTBALL THEME */
 
-:root {
-  --green: #00ff41;
-  --dark-green: #00c853;
-  --light-green: #69ff8c;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080d18;
+  color: white;
+  font-size: 20px;
+  line-height: 1.7;
 }
 
 header {
-  border-bottom: 4px solid var(--green);
+  background: #101a2b;
+  padding: 30px 15px;
+  text-align: center;
+  border-bottom: 4px solid #00e676;
 }
 
-header h1,
-h2,
+header h1 {
+  font-size: 36px;
+  color: #00e676;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 29px;
+  color: #00e676;
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 25px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 20px;
+}
+
+.match, .prediction, .card {
+  background: #142238;
+  padding: 20px;
+  margin: 15px 8px;
+  border-radius: 12px;
+  border-left: 5px solid #00e676;
+}
+
+.match p, .prediction p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .score {
-  color: var(--green);
-}
-
-.match-card {
-  border: 2px solid #087a35;
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.12);
-}
-
-.match-card:hover {
-  border-color: var(--green);
-  box-shadow: 0 0 16px rgba(0, 255, 65, 0.3);
-}
-
-nav a:hover {
-  color: var(--green);
+  font-size: 27px;
+  color: #00e676;
+  font-weight: bold;
 }
 
 button {
-  background: var(--green);
-  color: #001b08;
-}
-
-button:hover {
-  background: var(--dark-green);
+  font-size: 20px;
+  padding: 14px 22px;
+  background: #00e676;
+  color: #080d18;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
 }
 
 footer {
-  border-top: 2px solid var(--green);
+  background: #101a2b;
+  padding: 25px;
+  text-align: center;
+  font-size: 19px;
+}
+
+footer a {
+  color: #00e676;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 21px;
+  }
+
+  header h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .match p, .prediction p {
+    font-size: 23px;
+  }
 }
