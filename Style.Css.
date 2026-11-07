@@ -1,21 +1,41 @@
 
-/* BOAZ FOOTBALL - PERMANENT DESIGN */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
+  font-family: Arial, sans-serif;
   background: #080d18;
   color: #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 19px;
+  line-height: 1.6;
 }
 
 header {
   background: #101a2b;
-  border-bottom: 2px solid #00ff41;
+  padding: 25px 15px;
+  text-align: center;
+  border-bottom: 3px solid #00ff41;
 }
 
 header h1 {
   color: #00ff41;
-  font-size: 32px;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+h2 {
+  color: #00ff41;
+  font-size: 30px;
+  font-weight: 900;
+  margin: 20px 0;
+}
+
+h3 {
+  color: #69ff8c;
+  font-size: 26px;
   font-weight: 900;
 }
 
@@ -23,27 +43,69 @@ header h1 {
   background: #142238;
   border: 2px solid #087a35;
   border-radius: 12px;
-  padding: 18px;
-  margin: 15px 0;
+  padding: 20px;
+  margin: 18px 10px;
 }
 
-.match-card h3,
-.match-card .teams {
+.team-name,
+.home-team,
+.away-team {
   color: #ffffff;
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 900;
 }
 
-.score {
+.score,
+.match-score {
   color: #00ff41;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 900;
 }
 
 .prediction,
-.odds,
-.stats {
-  color: #69ff8c;
-  font-size: 18px;
+.match-details {
+  color: #ffffff;
+  font-size: 20px;
   font-weight: bold;
+}
+
+.league-title {
+  color: #00ff41;
+  font-size: 27px;
+  font-weight: 900;
+}
+
+button,
+a {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+footer {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .team-name,
+  .home-team,
+  .away-team {
+    font-size: 22px;
+  }
+
+  .score,
+  .match-score {
+    font-size: 27px;
+  }
+
+  .prediction,
+  .match-details {
+    font-size: 19px;
+  }
 }
