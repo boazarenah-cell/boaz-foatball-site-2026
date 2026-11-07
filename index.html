@@ -1,138 +1,183 @@
 
-<section class="weekend-predictions">
-  <style>
-    .weekend-predictions {
-      background: #003b22;
-      color: #ffffff;
-      padding: 20px 12px;
-      font-family: Arial, sans-serif;
-      font-size: 19px;
-      font-weight: bold;
-    }
+<style>
+.prediction-section {
+  background: #080d18;
+  color: #fff;
+  padding: 18px;
+  font-family: Arial, sans-serif;
+}
+.prediction-section h2 {
+  color: #00ff41;
+  font-size: 28px;
+  text-align: center;
+  margin: 22px 0;
+}
+.prediction-section h3 {
+  color: #69ff8c;
+  font-size: 23px;
+  margin: 20px 0 12px;
+}
+.boaz-match {
+  background: #142238;
+  border: 2px solid #087a35;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  font-size: 18px;
+}
+.boaz-teams {
+  color: #fff;
+  font-size: 21px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.boaz-score {
+  color: #00ff41;
+  font-size: 27px;
+  font-weight: 900;
+  margin: 10px 0;
+}
+.boaz-markets {
+  color: #69ff8c;
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: bold;
+}
+.boaz-time {
+  color: #fff;
+  font-size: 16px;
+}
+.boaz-note {
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+}
+</style>
 
-    .weekend-predictions h2 {
-      text-align: center;
-      color: #00ff80;
-      font-size: 29px;
-      margin: 18px 0;
-    }
+<div class="prediction-section">
 
-    .weekend-predictions h3 {
-      background: #006b3c;
-      color: white;
-      padding: 13px;
-      font-size: 23px;
-      margin-top: 25px;
-    }
+<h2>🏆 BOAZ FOOTBALL</h2>
+<h2>TODAY & TOMORROW PREDICTIONS</h2>
 
-    .weekend-predictions table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
+<div id="todayMatches"></div>
+<div id="tomorrowMatches"></div>
 
-    .weekend-predictions th,
-    .weekend-predictions td {
-      border: 1px solid #168c50;
-      padding: 12px 7px;
-      text-align: center;
-      font-size: 17px;
-    }
+<p class="boaz-note">
+Predictions are opinions, not guaranteed results.
+<br>BOAZ FOOTBALL ⚽
+</p>
+</div>
 
-    .weekend-predictions th {
-      background: #001f12;
-      color: #00ff80;
-    }
+<script>
+const matches = [
+{
+day:"today", league:"PREMIER LEAGUE",
+games:[
+["Leeds United","Tottenham","15:30","1-2","Yes","Over 1.5","Over 2.5"],
+["Arsenal","Hull City","18:00","3-0","No","Over 1.5","Over 2.5"],
+["Fulham","Newcastle","18:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Nottingham Forest","Man City","20:30","1-2","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"today", league:"BUNDESLIGA",
+games:[
+["Dortmund","Elversberg","16:30","3-1","Yes","Over 1.5","Over 2.5"],
+["Mainz","Bayern Munich","16:30","1-3","Yes","Over 1.5","Over 2.5"],
+["RB Leipzig","Augsburg","16:30","2-1","Yes","Over 1.5","Over 2.5"],
+["Stuttgart","Werder Bremen","19:30","2-1","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"today", league:"SERIE A",
+games:[
+["Cagliari","Frosinone","16:00","1-1","Yes","Over 1.5","Under 2.5"],
+["Torino","Lecce","16:00","1-0","No","Under 2.5","Under 2.5"],
+["Parma","Bologna","19:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Roma","Sassuolo","21:45","2-1","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"today", league:"LA LIGA",
+games:[
+["Malaga","Racing Santander","15:00","1-1","Yes","Over 1.5","Under 2.5"],
+["Espanyol","Deportivo La Coruna","17:15","2-1","Yes","Over 1.5","Over 2.5"],
+["Osasuna","Athletic Bilbao","19:30","1-1","Yes","Over 1.5","Under 2.5"],
+["Valencia","Real Madrid","22:00","1-2","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"today", league:"LIGUE 1",
+games:[
+["Auxerre","Paris FC","21:00","1-1","Yes","Over 1.5","Under 2.5"],
+["PSG","Troyes","23:05","3-0","No","Over 1.5","Over 2.5"]
+]},
+{
+day:"tomorrow", league:"PREMIER LEAGUE",
+games:[
+["Brighton","Brentford","17:00","2-1","Yes","Over 1.5","Over 2.5"],
+["Crystal Palace","Liverpool","17:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Ipswich","Bournemouth","17:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Sunderland","Chelsea","17:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Man United","Aston Villa","19:30","2-1","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"tomorrow", league:"BUNDESLIGA",
+games:[
+["Cologne","Leverkusen","17:30","1-2","Yes","Over 1.5","Over 2.5"],
+["Freiburg","Union Berlin","19:30","2-1","Yes","Over 1.5","Over 2.5"],
+["Hoffenheim","Schalke","21:30","2-1","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"tomorrow", league:"SERIE A",
+games:[
+["Napoli","Lazio","14:30","2-1","Yes","Over 1.5","Over 2.5"],
+["Genoa","AC Milan","17:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Monza","Atalanta","17:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Inter","Como","20:00","2-0","No","Over 1.5","Under 2.5"],
+["Fiorentina","Juventus","22:45","1-1","Yes","Over 1.5","Under 2.5"]
+]},
+{
+day:"tomorrow", league:"LA LIGA",
+games:[
+["Elche","Real Betis","16:00","1-2","Yes","Over 1.5","Over 2.5"],
+["Real Sociedad","Rayo Vallecano","18:15","2-1","Yes","Over 1.5","Over 2.5"],
+["Celta Vigo","Levante","20:30","2-1","Yes","Over 1.5","Over 2.5"],
+["Villarreal","Getafe","20:30","2-0","No","Over 1.5","Under 2.5"],
+["Atletico Madrid","Barcelona","23:00","1-2","Yes","Over 1.5","Over 2.5"]
+]},
+{
+day:"tomorrow", league:"LIGUE 1",
+games:[
+["Rennes","Lille","17:00","1-1","Yes","Over 1.5","Under 2.5"],
+["Angers","Nice","19:15","1-2","Yes","Over 1.5","Over 2.5"],
+["Brest","Lyon","19:15","1-2","Yes","Over 1.5","Over 2.5"],
+["Le Havre","Lorient","19:15","1-1","Yes","Over 1.5","Under 2.5"],
+["Le Mans","Monaco","19:15","1-2","Yes","Over 1.5","Over 2.5"],
+["Lens","Marseille","22:45","1-2","Yes","Over 1.5","Over 2.5"]
+]}
+];
 
-    .weekend-predictions td {
-      color: #ffffff;
-      background: #004b2c;
-    }
+function showMatches(day, containerId, heading) {
+ const container = document.getElementById(containerId);
+ container.innerHTML = `<h2>${heading}</h2>`;
 
-    .weekend-predictions .score {
-      color: #ffff00;
-      font-size: 20px;
-    }
+ matches.filter(group => group.day === day).forEach(group => {
+   container.innerHTML += `<h3>⚽ ${group.league}</h3>`;
 
-    .weekend-predictions .notice {
-      text-align: center;
-      color: #ffffff;
-      font-size: 15px;
-      margin-top: 20px;
-    }
+   group.games.forEach(game => {
+     container.innerHTML += `
+       <div class="boaz-match">
+         <div class="boaz-time">Kick-off: ${game[2]} EAT</div>
+         <div class="boaz-teams">${game[0]} vs ${game[1]}</div>
+         <div class="boaz-score">Correct Score: ${game[3]}</div>
+         <div class="boaz-markets">
+           BTTS: ${game[4]}<br>
+           ${game[5]}<br>
+           ${game[6]}
+         </div>
+       </div>`;
+   });
+ });
+}
 
-    .weekend-predictions .contact {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .weekend-predictions .contact a {
-      background: #00c853;
-      color: white;
-      padding: 13px 20px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-    }
-  </style>
-
-  <h2>⚽ BOAZ FOOTBALL</h2>
-  <h2>🔥 WEEKEND MATCH PREDICTIONS</h2>
-  <h3>FRIDAY 6 NOVEMBER 2026</h3>
-  <table>
-    <tr><th>Match</th><th>Score</th><th>O1.5</th><th>O2.5</th><th>BTTS</th></tr>
-    <tr><td>Everton vs Coventry</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Sevilla vs Alaves</td><td class="score">2-0</td><td>YES</td><td>NO</td><td>NO</td></tr>
-    <tr><td>Hamburg vs M'gladbach</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Venezia vs Udinese</td><td class="score">1-1</td><td>YES</td><td>NO</td><td>YES</td></tr>
-    <tr><td>Toulouse vs Strasbourg</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-  </table>
-
-  <h3>SATURDAY 7 NOVEMBER 2026</h3>
-  <table>
-    <tr><th>Match</th><th>Score</th><th>O1.5</th><th>O2.5</th><th>BTTS</th></tr>
-    <tr><td>Leeds vs Tottenham</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Arsenal vs Hull</td><td class="score">3-0</td><td>YES</td><td>YES</td><td>NO</td></tr>
-    <tr><td>Fulham vs Newcastle</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Nottingham Forest vs Man City</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Mainz vs Bayern</td><td class="score">1-3</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Dortmund vs Elversberg</td><td class="score">3-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Leipzig vs Augsburg</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Stuttgart vs Werder Bremen</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Roma vs Sassuolo</td><td class="score">2-0</td><td>YES</td><td>NO</td><td>NO</td></tr>
-    <tr><td>Parma vs Bologna</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Valencia vs Real Madrid</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>PSG vs Troyes</td><td class="score">3-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-  </table>
-
-  <h3>SUNDAY 8 NOVEMBER 2026</h3>
-  <table>
-    <tr><th>Match</th><th>Score</th><th>O1.5</th><th>O2.5</th><th>BTTS</th></tr>
-    <tr><td>Crystal Palace vs Liverpool</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Brighton vs Brentford</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Sunderland vs Chelsea</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Man United vs Aston Villa</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Napoli vs Lazio</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Genoa vs AC Milan</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Inter vs Como</td><td class="score">2-0</td><td>YES</td><td>NO</td><td>NO</td></tr>
-    <tr><td>Fiorentina vs Juventus</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Atletico Madrid vs Barcelona</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Lens vs Marseille</td><td class="score">1-2</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Rennes vs Lille</td><td class="score">1-1</td><td>YES</td><td>NO</td><td>YES</td></tr>
-    <tr><td>Celtic vs Kilmarnock</td><td class="score">3-0</td><td>YES</td><td>YES</td><td>NO</td></tr>
-    <tr><td>Club Brugge vs Anderlecht</td><td class="score">2-1</td><td>YES</td><td>YES</td><td>YES</td></tr>
-    <tr><td>Cambuur vs PSV</td><td class="score">0-3</td><td>YES</td><td>YES</td><td>NO</td></tr>
-  </table>
-
-  <p class="notice">
-    🏆 BOAZ FOOTBALL – YOUR WEEKEND PREDICTION CENTRE
-    <br/><br/>
-    Predictions are opinions, not guaranteed results.
-    <br/>
-    Always analyse matches responsibly.
-  </p>
-
-  <div class="contact">
-    <a href="https://wa.me/256777232502">CONTACT BOAZ ON WHATSAPP</a>
-  </div>
-</ section>
+showMatches("today","todayMatches","📅 SATURDAY 7 NOVEMBER");
+showMatches("tomorrow","tomorrowMatches","📅 SUNDAY 8 NOVEMBER");
+</script>
