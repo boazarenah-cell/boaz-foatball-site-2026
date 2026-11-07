@@ -1,183 +1,356 @@
 
 <style>
-.prediction-section {
+#boaz-upcoming {
   background: #080d18;
   color: #fff;
   padding: 18px;
   font-family: Arial, sans-serif;
 }
-.prediction-section h2 {
+#boaz-upcoming h2 {
   color: #00ff41;
-  font-size: 28px;
   text-align: center;
-  margin: 22px 0;
+  font-size: 28px;
+  font-weight: 900;
 }
-.prediction-section h3 {
-  color: #69ff8c;
+#boaz-upcoming .match-day {
+  color: #00ff41;
   font-size: 23px;
-  margin: 20px 0 12px;
+  margin: 25px 0 15px;
+  border-bottom: 2px solid #087a35;
+  padding-bottom: 9px;
 }
-.boaz-match {
+#boaz-upcoming .match-card {
   background: #142238;
   border: 2px solid #087a35;
   border-radius: 12px;
   padding: 18px;
-  margin-bottom: 14px;
-  font-size: 18px;
+  margin-bottom: 15px;
 }
-.boaz-teams {
-  color: #fff;
-  font-size: 21px;
-  font-weight: 900;
-  margin-bottom: 12px;
-}
-.boaz-score {
-  color: #00ff41;
-  font-size: 27px;
-  font-weight: 900;
-  margin: 10px 0;
-}
-.boaz-markets {
+#boaz-upcoming .league {
   color: #69ff8c;
   font-size: 17px;
-  line-height: 1.8;
   font-weight: bold;
+  margin-bottom: 12px;
 }
-.boaz-time {
-  color: #fff;
-  font-size: 16px;
-}
-.boaz-note {
-  color: #fff;
+#boaz-upcoming .teams {
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
   text-align: center;
-  font-size: 15px;
+  margin: 12px 0;
+}
+#boaz-upcoming .prediction {
+  color: #00ff41;
+  font-size: 23px;
+  font-weight: 900;
+  text-align: center;
+  margin: 12px 0;
+}
+#boaz-upcoming .details {
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.9;
+}
+#boaz-upcoming .kickoff {
+  color: #69ff8c;
+  font-weight: bold;
+  font-size: 17px;
+}
+#boaz-upcoming .disclaimer {
+  color: #aaa;
+  text-align: center;
+  font-size: 14px;
   margin-top: 20px;
 }
 </style>
 
-<div class="prediction-section">
+<section id="boaz-upcoming">
+  <h2>⚽ BOAZ FOOTBALL</h2>
+  <p style="text-align:center;color:#69ff8c;font-size:18px">
+    UPCOMING MATCH PREDICTIONS
+  </p>
+  <p style="text-align:center;color:white">
+    Scheduled matches only | Uganda Time (EAT)
+  </p>
 
-<h2>🏆 BOAZ FOOTBALL</h2>
-<h2>TODAY & TOMORROW PREDICTIONS</h2>
+  <div id="boaz-match-list"></div>
 
-<div id="todayMatches"></div>
-<div id="tomorrowMatches"></div>
-
-<p class="boaz-note">
-Predictions are opinions, not guaranteed results.
-<br>BOAZ FOOTBALL ⚽
-</p>
-</div>
+  <p class="disclaimer">
+    Predictions are opinions, not guaranteed results.
+    Please gamble responsibly.
+  </p>
+</section>
 
 <script>
-const matches = [
-{
-day:"today", league:"PREMIER LEAGUE",
-games:[
-["Leeds United","Tottenham","15:30","1-2","Yes","Over 1.5","Over 2.5"],
-["Arsenal","Hull City","18:00","3-0","No","Over 1.5","Over 2.5"],
-["Fulham","Newcastle","18:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Nottingham Forest","Man City","20:30","1-2","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"today", league:"BUNDESLIGA",
-games:[
-["Dortmund","Elversberg","16:30","3-1","Yes","Over 1.5","Over 2.5"],
-["Mainz","Bayern Munich","16:30","1-3","Yes","Over 1.5","Over 2.5"],
-["RB Leipzig","Augsburg","16:30","2-1","Yes","Over 1.5","Over 2.5"],
-["Stuttgart","Werder Bremen","19:30","2-1","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"today", league:"SERIE A",
-games:[
-["Cagliari","Frosinone","16:00","1-1","Yes","Over 1.5","Under 2.5"],
-["Torino","Lecce","16:00","1-0","No","Under 2.5","Under 2.5"],
-["Parma","Bologna","19:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Roma","Sassuolo","21:45","2-1","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"today", league:"LA LIGA",
-games:[
-["Malaga","Racing Santander","15:00","1-1","Yes","Over 1.5","Under 2.5"],
-["Espanyol","Deportivo La Coruna","17:15","2-1","Yes","Over 1.5","Over 2.5"],
-["Osasuna","Athletic Bilbao","19:30","1-1","Yes","Over 1.5","Under 2.5"],
-["Valencia","Real Madrid","22:00","1-2","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"today", league:"LIGUE 1",
-games:[
-["Auxerre","Paris FC","21:00","1-1","Yes","Over 1.5","Under 2.5"],
-["PSG","Troyes","23:05","3-0","No","Over 1.5","Over 2.5"]
-]},
-{
-day:"tomorrow", league:"PREMIER LEAGUE",
-games:[
-["Brighton","Brentford","17:00","2-1","Yes","Over 1.5","Over 2.5"],
-["Crystal Palace","Liverpool","17:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Ipswich","Bournemouth","17:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Sunderland","Chelsea","17:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Man United","Aston Villa","19:30","2-1","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"tomorrow", league:"BUNDESLIGA",
-games:[
-["Cologne","Leverkusen","17:30","1-2","Yes","Over 1.5","Over 2.5"],
-["Freiburg","Union Berlin","19:30","2-1","Yes","Over 1.5","Over 2.5"],
-["Hoffenheim","Schalke","21:30","2-1","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"tomorrow", league:"SERIE A",
-games:[
-["Napoli","Lazio","14:30","2-1","Yes","Over 1.5","Over 2.5"],
-["Genoa","AC Milan","17:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Monza","Atalanta","17:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Inter","Como","20:00","2-0","No","Over 1.5","Under 2.5"],
-["Fiorentina","Juventus","22:45","1-1","Yes","Over 1.5","Under 2.5"]
-]},
-{
-day:"tomorrow", league:"LA LIGA",
-games:[
-["Elche","Real Betis","16:00","1-2","Yes","Over 1.5","Over 2.5"],
-["Real Sociedad","Rayo Vallecano","18:15","2-1","Yes","Over 1.5","Over 2.5"],
-["Celta Vigo","Levante","20:30","2-1","Yes","Over 1.5","Over 2.5"],
-["Villarreal","Getafe","20:30","2-0","No","Over 1.5","Under 2.5"],
-["Atletico Madrid","Barcelona","23:00","1-2","Yes","Over 1.5","Over 2.5"]
-]},
-{
-day:"tomorrow", league:"LIGUE 1",
-games:[
-["Rennes","Lille","17:00","1-1","Yes","Over 1.5","Under 2.5"],
-["Angers","Nice","19:15","1-2","Yes","Over 1.5","Over 2.5"],
-["Brest","Lyon","19:15","1-2","Yes","Over 1.5","Over 2.5"],
-["Le Havre","Lorient","19:15","1-1","Yes","Over 1.5","Under 2.5"],
-["Le Mans","Monaco","19:15","1-2","Yes","Over 1.5","Over 2.5"],
-["Lens","Marseille","22:45","1-2","Yes","Over 1.5","Over 2.5"]
-]}
+const boazMatches = [
+
+  // SATURDAY 7 NOVEMBER - REMAINING FIXTURES
+
+  {date:"2026-11-07",time:"19:15",league:"LIGUE 1",
+   home:"Auxerre",away:"Paris FC",score:"1 - 1",
+   o15:"YES",o25:"NO",btts:"YES"},
+
+  {date:"2026-11-07",time:"20:00",league:"SERIE A",
+   home:"Parma",away:"Bologna",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-07",time:"20:30",league:"BUNDESLIGA",
+   home:"Stuttgart",away:"Werder Bremen",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-07",time:"22:45",league:"SERIE A",
+   home:"Roma",away:"Sassuolo",score:"2 - 0",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-07",time:"22:45",league:"LIGUE 1",
+   home:"PSG",away:"Troyes",score:"3 - 0",
+   o15:"YES",o25:"YES",btts:"NO"},
+
+  {date:"2026-11-07",time:"23:00",league:"LA LIGA",
+   home:"Valencia",away:"Real Madrid",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // SUNDAY 8 NOVEMBER
+
+  // PREMIER LEAGUE
+
+  {date:"2026-11-08",time:"17:00",league:"PREMIER LEAGUE",
+   home:"Brighton",away:"Brentford",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"17:00",league:"PREMIER LEAGUE",
+   home:"Crystal Palace",away:"Liverpool",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"17:00",league:"PREMIER LEAGUE",
+   home:"Ipswich",away:"Bournemouth",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"17:00",league:"PREMIER LEAGUE",
+   home:"Sunderland",away:"Chelsea",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:30",league:"PREMIER LEAGUE",
+   home:"Manchester United",away:"Aston Villa",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // LA LIGA
+
+  {date:"2026-11-08",time:"16:00",league:"LA LIGA",
+   home:"Elche",away:"Real Betis",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"18:15",league:"LA LIGA",
+   home:"Real Sociedad",away:"Rayo Vallecano",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"20:30",league:"LA LIGA",
+   home:"Celta Vigo",away:"Levante",score:"2 - 0",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-08",time:"20:30",league:"LA LIGA",
+   home:"Villarreal",away:"Getafe",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"23:00",league:"LA LIGA",
+   home:"Atletico Madrid",away:"Barcelona",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // SERIE A
+
+  {date:"2026-11-08",time:"14:30",league:"SERIE A",
+   home:"Napoli",away:"Lazio",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"17:00",league:"SERIE A",
+   home:"Genoa",away:"AC Milan",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"17:00",league:"SERIE A",
+   home:"Monza",away:"Atalanta",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"20:00",league:"SERIE A",
+   home:"Inter",away:"Como",score:"2 - 0",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-08",time:"22:45",league:"SERIE A",
+   home:"Fiorentina",away:"Juventus",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // BUNDESLIGA
+
+  {date:"2026-11-08",time:"17:30",league:"BUNDESLIGA",
+   home:"FC Koln",away:"Bayer Leverkusen",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:30",league:"BUNDESLIGA",
+   home:"Freiburg",away:"Union Berlin",score:"2 - 0",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-08",time:"21:30",league:"BUNDESLIGA",
+   home:"Hoffenheim",away:"Schalke",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // LIGUE 1
+
+  {date:"2026-11-08",time:"17:00",league:"LIGUE 1",
+   home:"Rennes",away:"Lille",score:"1 - 1",
+   o15:"YES",o25:"NO",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:15",league:"LIGUE 1",
+   home:"Angers",away:"Nice",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:15",league:"LIGUE 1",
+   home:"Brest",away:"Lyon",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:15",league:"LIGUE 1",
+   home:"Le Havre",away:"Lorient",score:"1 - 1",
+   o15:"YES",o25:"NO",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:15",league:"LIGUE 1",
+   home:"Le Mans",away:"Monaco",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"22:45",league:"LIGUE 1",
+   home:"Lens",away:"Marseille",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // EREDIVISIE
+
+  {date:"2026-11-08",time:"14:15",league:"EREDIVISIE",
+   home:"Heerenveen",away:"Feyenoord",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"16:30",league:"EREDIVISIE",
+   home:"Twente",away:"Ajax",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"18:45",league:"EREDIVISIE",
+   home:"AZ Alkmaar",away:"Groningen",score:"2 - 0",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-08",time:"18:45",league:"EREDIVISIE",
+   home:"Cambuur",away:"PSV",score:"1 - 3",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"22:00",league:"EREDIVISIE",
+   home:"Utrecht",away:"NEC Nijmegen",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // PORTUGAL
+
+  {date:"2026-11-08",time:"18:30",league:"PORTUGUESE PRIMEIRA LIGA",
+   home:"Estoril",away:"Maritimo",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"18:30",league:"PORTUGUESE PRIMEIRA LIGA",
+   home:"Santa Clara",away:"Gil Vicente",score:"1 - 1",
+   o15:"YES",o25:"NO",btts:"YES"},
+
+  {date:"2026-11-08",time:"21:00",league:"PORTUGUESE PRIMEIRA LIGA",
+   home:"Vitoria Guimaraes",away:"Porto",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"23:30",league:"PORTUGUESE PRIMEIRA LIGA",
+   home:"Estrela",away:"Benfica",score:"0 - 2",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-08",time:"23:30",league:"PORTUGUESE PRIMEIRA LIGA",
+   home:"Rio Ave",away:"Braga",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  // TURKEY
+
+  {date:"2026-11-08",time:"13:30",league:"TURKISH SUPER LIG",
+   home:"Rizespor",away:"Erzurumspor",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"16:00",league:"TURKISH SUPER LIG",
+   home:"Corum",away:"Fenerbahce",score:"0 - 2",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  {date:"2026-11-08",time:"18:30",league:"TURKISH SUPER LIG",
+   home:"Alanyaspor",away:"Trabzonspor",score:"1 - 2",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"21:00",league:"TURKISH SUPER LIG",
+   home:"Besiktas",away:"Genclerbirligi",score:"2 - 0",
+   o15:"YES",o25:"NO",btts:"NO"},
+
+  // SCOTLAND
+
+  {date:"2026-11-08",time:"18:00",league:"SCOTTISH PREMIERSHIP",
+   home:"Hearts",away:"Falkirk",score:"2 - 1",
+   o15:"YES",o25:"YES",btts:"YES"},
+
+  {date:"2026-11-08",time:"19:00",league:"SCOTTISH PREMIERSHIP",
+   home:"Celtic",away:"Kilmarnock",score:"3 - 0",
+   o15:"YES",o25:"YES",btts:"NO"}
+
 ];
 
-function showMatches(day, containerId, heading) {
- const container = document.getElementById(containerId);
- container.innerHTML = `<h2>${heading}</h2>`;
+function displayBoazMatches() {
+  const now = new Date();
 
- matches.filter(group => group.day === day).forEach(group => {
-   container.innerHTML += `<h3>⚽ ${group.league}</h3>`;
+  const upcoming = boazMatches.filter(match => {
+    const kickoff = new Date(
+      `${match.date}T${match.time}:00+03:00`
+    );
+    return kickoff > now;
+  });
 
-   group.games.forEach(game => {
-     container.innerHTML += `
-       <div class="boaz-match">
-         <div class="boaz-time">Kick-off: ${game[2]} EAT</div>
-         <div class="boaz-teams">${game[0]} vs ${game[1]}</div>
-         <div class="boaz-score">Correct Score: ${game[3]}</div>
-         <div class="boaz-markets">
-           BTTS: ${game[4]}<br>
-           ${game[5]}<br>
-           ${game[6]}
-         </div>
-       </div>`;
-   });
- });
+  const container = document.getElementById("boaz-match-list");
+
+  if (!container) return;
+
+  if (upcoming.length === 0) {
+    container.innerHTML =
+      '<p style="text-align:center;color:white">No upcoming scheduled matches.</p>';
+    return;
+  }
+
+  const days = {};
+
+  upcoming.forEach(match => {
+    if (!days[match.date]) days[match.date] = [];
+    days[match.date].push(match);
+  });
+
+  container.innerHTML = Object.keys(days).map(date => {
+    const dayTitle = new Date(date + "T12:00:00")
+      .toLocaleDateString("en-GB", {
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        timeZone:"UTC"
+      });
+
+    return `
+      <h3 class="match-day">📅 ${dayTitle}</h3>
+      ${days[date].map(m => `
+        <div class="match-card">
+          <div class="league">🏆 ${m.league}</div>
+          <div class="kickoff">🕒 Kick-off: ${m.time} EAT</div>
+          <div class="teams">
+            ${m.home} <span style="color:#00ff41">VS</span> ${m.away}
+          </div>
+          <div class="prediction">
+            Correct Score: ${m.score}
+          </div>
+          <div class="details">
+            ⚽ Over 1.5 Goals: <b>${m.o15}</b><br>
+            ⚽ Over 2.5 Goals: <b>${m.o25}</b><br>
+            🤝 BTTS: <b>${m.btts}</b>
+          </div>
+        </div>
+      `).join("")}
+    `;
+  }).join("");
 }
 
-showMatches("today","todayMatches","📅 SATURDAY 7 NOVEMBER");
-showMatches("tomorrow","tomorrowMatches","📅 SUNDAY 8 NOVEMBER");
+displayBoazMatches();
+setInterval(displayBoazMatches, 60000);
 </script>
