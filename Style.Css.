@@ -1,148 +1,192 @@
 
-/* =====================================
-   BOAZ FOOTBALL - ORIGINAL DESIGN
-   ===================================== */
+/* ==========================================
+   BOAZ FOOTBALL - PROBABILITY DASHBOARD
+   ORIGINAL NAVY AND GREEN IDENTITY
+   ========================================== */
 
-* {
+.boaz-dashboard,
+.boaz-dashboard * {
     box-sizing: border-box;
 }
 
-html,
-body {
+.boaz-dashboard {
     background: #080d18 !important;
     color: #ffffff !important;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-}
-
-/* HEADER */
-
-header {
-    background: #101a2b !important;
-    border-bottom: 2px solid #00ff41;
-    padding: 20px;
-    text-align: center;
-}
-
-header h1 {
-    color: #00ff41 !important;
-    font-size: 32px !important;
-    font-weight: 900;
-}
-
-/* PAGE CONTENT */
-
-main,
-section {
-    background: #080d18 !important;
-    color: #ffffff !important;
-}
-
-section {
     padding: 15px;
+    font-family: Arial, sans-serif;
 }
 
-section h2 {
+.boaz-dashboard h2 {
     color: #00ff41 !important;
-    font-size: 26px !important;
-    font-weight: 900 !important;
-    margin: 22px 0;
-}
-
-section h3 {
-    color: #ffffff !important;
-    font-size: 23px !important;
-    font-weight: 900 !important;
-}
-
-/* MATCH CARDS */
-
-.match-card {
-    background: #142238 !important;
-    border: 2px solid #087a35 !important;
-    border-radius: 12px;
-    padding: 18px !important;
-    margin: 15px 0 !important;
-    color: #ffffff !important;
-}
-
-.match-card h3,
-.match-card h3:first-child {
-    color: #ffffff !important;
-    font-size: 23px !important;
-    font-weight: 900 !important;
-}
-
-/* SCORES */
-
-.match-card .score {
-    color: #00ff41 !important;
-    font-size: 25px !important;
-    font-weight: 900 !important;
-    margin: 12px 0;
-}
-
-/* PREDICTIONS */
-
-.match-card .prediction,
-.match-card .odds,
-.match-card .stats {
-    color: #69ff8c !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-    line-height: 1.6;
-}
-
-/* FOOTER TEXT */
-
-footer {
-    background: #101a2b !important;
-    color: #69ff8c !important;
-    border-top: 2px solid #00ff41;
-    padding: 20px;
+    font-size: 28px !important;
+    font-weight: 900;
     text-align: center;
 }
 
-/* LINKS */
+.boaz-dashboard .match-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
 
-a {
+.boaz-dashboard .prob-card {
+    background: linear-gradient(145deg, #063b27, #071a19 75%) !important;
+    border: 2px solid #087a35 !important;
+    border-radius: 14px;
+    padding: 17px;
+    color: #ffffff !important;
+    box-shadow: 0 0 9px rgba(0,255,65,.22);
+    min-width: 0;
+}
+
+.boaz-dashboard .match-date {
     color: #69ff8c !important;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.boaz-dashboard .league-name {
+    color: #69ff8c !important;
+    font-size: 14px;
+    text-align: right;
+}
+
+.boaz-dashboard .teams-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.boaz-dashboard .team {
+    color: #ffffff !important;
+    font-size: 19px !important;
+    font-weight: 900 !important;
+    overflow-wrap: anywhere;
+}
+
+.boaz-dashboard .away-team {
+    text-align: right;
+}
+
+.boaz-dashboard .predicted-score {
+    color: #00ff41 !important;
+    font-size: 29px !important;
+    font-weight: 900 !important;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.boaz-dashboard .predicted-label {
+    color: #69ff8c !important;
+    text-align: center;
+    font-size: 12px;
     font-weight: bold;
 }
 
-/* WHATSAPP */
+.boaz-dashboard .prob-numbers {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 900;
+    margin: 15px 0 7px;
+}
 
-.whatsapp,
-.contact-whatsapp {
+.boaz-dashboard .home-pct { color: #3994ff !important; }
+.boaz-dashboard .draw-pct { color: #dddddd !important; }
+.boaz-dashboard .away-pct { color: #ff5555 !important; }
+
+.boaz-dashboard .prob-bar {
+    display: flex;
+    width: 100%;
+    height: 13px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #333333;
+}
+
+.boaz-dashboard .prob-home { background: #237cff; }
+.boaz-dashboard .prob-draw { background: #bfc4cc; }
+.boaz-dashboard .prob-away { background: #e52e3b; }
+
+.boaz-dashboard .prob-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff !important;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.boaz-dashboard .prediction-result {
+    display: inline-block;
     background: #087a35 !important;
     color: #ffffff !important;
-    border: 2px solid #00ff41;
-    border-radius: 10px;
-    padding: 15px;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 900;
+    margin-top: 17px;
+}
+
+.boaz-dashboard .confidence {
+    color: #69ff8c !important;
+    font-size: 15px;
+    font-weight: 900;
+    float: right;
+    margin-top: 22px;
+}
+
+.boaz-dashboard .market-info {
+    clear: both;
+    background: #102b23 !important;
+    border: 1px solid #087a35;
+    border-radius: 9px;
+    padding: 12px;
+    margin-top: 15px;
+    color: #69ff8c !important;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.boaz-dashboard .prediction-note {
+    color: #ffffff !important;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.boaz-dashboard .prob-card a {
     display: block;
+    background: #101a2b !important;
+    color: #69ff8c !important;
     text-align: center;
-    font-size: 20px;
+    padding: 12px;
+    border: 1px solid #087a35;
+    border-radius: 8px;
+    margin-top: 13px;
+    text-decoration: none;
+    font-size: 15px;
     font-weight: 900;
 }
 
-/* MOBILE */
+@media(max-width: 850px) {
+    .boaz-dashboard .match-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
-@media (max-width: 600px) {
-    section h2 {
-        font-size: 24px !important;
+@media(max-width: 550px) {
+    .boaz-dashboard .match-grid {
+        grid-template-columns: 1fr;
     }
 
-    .match-card {
-        padding: 18px !important;
+    .boaz-dashboard .team {
+        font-size: 20px !important;
     }
 
-    .match-card h3 {
-        font-size: 23px !important;
-    }
-
-    .match-card .score {
-        font-size: 25px !important;
+    .boaz-dashboard .predicted-score {
+        font-size: 27px !important;
     }
 }
