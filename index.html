@@ -1,305 +1,281 @@
 
-<!-- =====================================
-     BOAZ FOOTBALL CHAMPIONS LEAGUE
-     24-25 NOVEMBER 2026
-     ===================================== -->
+<style>
+#boaz-predictions,
+#boaz-predictions * {
+    box-sizing: border-box;
+}
 
-<section id="champions-league" class="boaz-dashboard">
+#boaz-predictions {
+    background: #080d18 !important;
+    color: #fff !important;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+}
 
-<h2>🏆 UEFA CHAMPIONS LEAGUE</h2>
+#boaz-predictions h2 {
+    color: #00ff41 !important;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 22px 0;
+}
+
+#boaz-predictions .cards {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 15px;
+}
+
+#boaz-predictions .card {
+    background: linear-gradient(145deg,#063b27,#071a19) !important;
+    border: 2px solid #087a35 !important;
+    border-radius: 14px;
+    padding: 18px;
+    color: white !important;
+    box-shadow: 0 0 10px #087a3555;
+    min-width: 0;
+}
+
+#boaz-predictions .date {
+    color: #69ff8c !important;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#boaz-predictions .teams {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 7px;
+    margin: 25px 0;
+}
+
+#boaz-predictions .team {
+    color: #fff !important;
+    font-size: 20px;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+#boaz-predictions .away {
+    text-align: right;
+}
+
+#boaz-predictions .score {
+    color: #00ff41 !important;
+    font-size: 29px;
+    font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#boaz-predictions .small {
+    color: #69ff8c !important;
+    font-size: 12px;
+    text-align: center;
+}
+
+#boaz-predictions .percentages {
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    font-weight: 900;
+    margin: 15px 0 8px;
+}
+
+#boaz-predictions .blue {color:#3994ff;}
+#boaz-predictions .grey {color:#ddd;}
+#boaz-predictions .red {color:#ff5555;}
+
+#boaz-predictions .bar {
+    display: flex;
+    height: 14px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#boaz-predictions .home-bar {background:#237cff;}
+#boaz-predictions .draw-bar {background:#bfc4cc;}
+#boaz-predictions .away-bar {background:#e52e3b;}
+
+#boaz-predictions .labels {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+#boaz-predictions .winner {
+    display: inline-block;
+    background: #087a35;
+    color: white;
+    padding: 9px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 900;
+    margin-top: 18px;
+}
+
+#boaz-predictions .confidence {
+    color: #69ff8c;
+    float: right;
+    font-size: 14px;
+    font-weight: 900;
+    margin-top: 23px;
+}
+
+#boaz-predictions .markets {
+    clear: both;
+    background: #102b23;
+    border: 1px solid #087a35;
+    border-radius: 9px;
+    padding: 12px;
+    margin-top: 17px;
+    color: #69ff8c;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+#boaz-predictions .details {
+    background: #101a2b;
+    border: 1px solid #087a35;
+    border-radius: 8px;
+    padding: 12px;
+    color: #69ff8c;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+@media(max-width:850px) {
+    #boaz-predictions .cards {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:550px) {
+    #boaz-predictions .cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<section id="boaz-predictions">
+
+<h2>🏆 BOAZ FOOTBALL</h2>
+<h2>UEFA CHAMPIONS LEAGUE</h2>
 <h2>24–25 NOVEMBER 2026</h2>
-<h3 style="color:#69ff8c;text-align:center">
-⚽ BOAZ FOOTBALL PROBABILITY PREDICTIONS
-</h3>
 
-<p style="color:#ffffff;text-align:center">
-Home Win • Draw • Away Win • Goal Markets
+<p style="text-align:center;color:#69ff8c;font-weight:bold">
+MATCH PREDICTIONS AND WIN PROBABILITIES
 </p>
 
 <h2>📅 TUESDAY 24 NOVEMBER</h2>
 
-<div class="match-grid">
+<div class="cards">
 
-<!-- 1 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Bodø/Glimt</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">LASK Linz</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">47%</span><span class="draw-pct">26%</span><span class="away-pct">27%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:47%"></div><div class="prob-draw" style="width:26%"></div><div class="prob-away" style="width:27%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Home Win (1X)</span><span class="confidence">47% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 2 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Galatasaray</div>
-<div><div class="predicted-score">1 - 2</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Aston Villa</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">29%</span><span class="draw-pct">25%</span><span class="away-pct">46%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:29%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:46%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Away Win</span><span class="confidence">46% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 3 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
+<!-- MATCH 1 -->
+<div class="card">
+<div class="date">24 NOVEMBER | CHAMPIONS LEAGUE</div>
+<div class="teams">
 <div class="team">Arsenal</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Borussia Dortmund</div>
+<div>
+<div class="score">2 - 1</div>
+<div class="small">PREDICTED</div>
 </div>
-<div class="prob-numbers"><span class="home-pct">52%</span><span class="draw-pct">24%</span><span class="away-pct">24%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:52%"></div><div class="prob-draw" style="width:24%"></div><div class="prob-away" style="width:24%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Arsenal Win</span><span class="confidence">52% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="team away">Dortmund</div>
 </div>
-
-<!-- 4 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Como</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">AEK Athens</div>
+<div class="percentages">
+<span class="blue">52%</span>
+<span class="grey">24%</span>
+<span class="red">24%</span>
 </div>
-<div class="prob-numbers"><span class="home-pct">48%</span><span class="draw-pct">27%</span><span class="away-pct">25%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:48%"></div><div class="prob-draw" style="width:27%"></div><div class="prob-away" style="width:25%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Home Win</span><span class="confidence">48% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="bar">
+<div class="home-bar" style="width:52%"></div>
+<div class="draw-bar" style="width:24%"></div>
+<div class="away-bar" style="width:24%"></div>
 </div>
-
-<!-- 5 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Feyenoord</div>
-<div><div class="predicted-score">1 - 2</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">FC Porto</div>
+<div class="labels"><span>Home</span><span>Draw</span><span>Away</span></div>
+<span class="winner">Home Win</span>
+<span class="confidence">52% confident</span>
+<div class="markets">
+Over 1.5: YES<br>
+Over 2.5: YES<br>
+BTTS: YES
 </div>
-<div class="prob-numbers"><span class="home-pct">28%</span><span class="draw-pct">25%</span><span class="away-pct">47%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:28%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:47%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Porto Win</span><span class="confidence">47% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="details">View Details →</div>
 </div>
 
-<!-- 6 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Manchester City</div>
-<div><div class="predicted-score">3 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Napoli</div>
+<!-- MATCH 2 -->
+<div class="card">
+<div class="date">24 NOVEMBER | CHAMPIONS LEAGUE</div>
+<div class="teams">
+<div class="team">Man City</div>
+<div>
+<div class="score">3 - 1</div>
+<div class="small">PREDICTED</div>
 </div>
-<div class="prob-numbers"><span class="home-pct">58%</span><span class="draw-pct">22%</span><span class="away-pct">20%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:58%"></div><div class="prob-draw" style="width:22%"></div><div class="prob-away" style="width:20%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Man City Win</span><span class="confidence">58% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="team away">Napoli</div>
+</div>
+<div class="percentages">
+<span class="blue">58%</span>
+<span class="grey">22%</span>
+<span class="red">20%</span>
+</div>
+<div class="bar">
+<div class="home-bar" style="width:58%"></div>
+<div class="draw-bar" style="width:22%"></div>
+<div class="away-bar" style="width:20%"></div>
+</div>
+<div class="labels"><span>Home</span><span>Draw</span><span>Away</span></div>
+<span class="winner">Home Win</span>
+<span class="confidence">58% confident</span>
+<div class="markets">
+Over 1.5: YES<br>
+Over 2.5: YES<br>
+BTTS: YES
+</div>
+<div class="details">View Details →</div>
 </div>
 
-<!-- 7 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">RB Leipzig</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Lens</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">49%</span><span class="draw-pct">26%</span><span class="away-pct">25%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:49%"></div><div class="prob-draw" style="width:26%"></div><div class="prob-away" style="width:25%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Leipzig Win</span><span class="confidence">49% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 8 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
+<!-- MATCH 3 -->
+<div class="card">
+<div class="date">24 NOVEMBER | CHAMPIONS LEAGUE</div>
+<div class="teams">
 <div class="team">Real Madrid</div>
-<div><div class="predicted-score">3 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">PSV Eindhoven</div>
+<div>
+<div class="score">3 - 1</div>
+<div class="small">PREDICTED</div>
 </div>
-<div class="prob-numbers"><span class="home-pct">60%</span><span class="draw-pct">21%</span><span class="away-pct">19%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:60%"></div><div class="prob-draw" style="width:21%"></div><div class="prob-away" style="width:19%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Real Madrid Win</span><span class="confidence">60% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="team away">PSV</div>
 </div>
-
-<!-- 9 -->
-<div class="prob-card">
-<div class="match-date">24 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Slovan Bratislava</div>
-<div><div class="predicted-score">1 - 2</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Real Betis</div>
+<div class="percentages">
+<span class="blue">60%</span>
+<span class="grey">21%</span>
+<span class="red">19%</span>
 </div>
-<div class="prob-numbers"><span class="home-pct">25%</span><span class="draw-pct">25%</span><span class="away-pct">50%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:25%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:50%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Betis Win</span><span class="confidence">50% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="bar">
+<div class="home-bar" style="width:60%"></div>
+<div class="draw-bar" style="width:21%"></div>
+<div class="away-bar" style="width:19%"></div>
 </div>
-
+<div class="labels"><span>Home</span><span>Draw</span><span>Away</span></div>
+<span class="winner">Home Win</span>
+<span class="confidence">60% confident</span>
+<div class="markets">
+Over 1.5: YES<br>
+Over 2.5: YES<br>
+BTTS: YES
 </div>
-
-<h2>📅 WEDNESDAY 25 NOVEMBER</h2>
-
-<div class="match-grid">
-
-<!-- 10 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Sabah</div>
-<div><div class="predicted-score">0 - 3</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Barcelona</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">12%</span><span class="draw-pct">18%</span><span class="away-pct">70%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:12%"></div><div class="prob-draw" style="width:18%"></div><div class="prob-away" style="width:70%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Barcelona Win</span><span class="confidence">70% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: NO</div>
-</div>
-
-<!-- 11 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Slavia Prague</div>
-<div><div class="predicted-score">1 - 2</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Villarreal</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">27%</span><span class="draw-pct">25%</span><span class="away-pct">48%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:27%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:48%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Villarreal Win</span><span class="confidence">48% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 12 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Atletico Madrid</div>
-<div><div class="predicted-score">3 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Viking FK</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">62%</span><span class="draw-pct">21%</span><span class="away-pct">17%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:62%"></div><div class="prob-draw" style="width:21%"></div><div class="prob-away" style="width:17%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Atletico Win</span><span class="confidence">62% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 13 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Club Brugge</div>
-<div><div class="predicted-score">1 - 2</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Liverpool</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">26%</span><span class="draw-pct">25%</span><span class="away-pct">49%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:26%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:49%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Liverpool Win</span><span class="confidence">49% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 14 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Inter Milan</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Stuttgart</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">50%</span><span class="draw-pct">25%</span><span class="away-pct">25%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:50%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:25%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Inter Win</span><span class="confidence">50% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 15 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Shakhtar Donetsk</div>
-<div><div class="predicted-score">1 - 2</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Fenerbahce</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">28%</span><span class="draw-pct">25%</span><span class="away-pct">47%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:28%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:47%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Fenerbahce Win</span><span class="confidence">47% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 16 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Lille</div>
-<div><div class="predicted-score">1 - 3</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Bayern Munich</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">18%</span><span class="draw-pct">21%</span><span class="away-pct">61%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:18%"></div><div class="prob-draw" style="width:21%"></div><div class="prob-away" style="width:61%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Bayern Win</span><span class="confidence">61% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 17 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">PSG</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Roma</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">51%</span><span class="draw-pct">25%</span><span class="away-pct">24%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:51%"></div><div class="prob-draw" style="width:25%"></div><div class="prob-away" style="width:24%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 PSG Win</span><span class="confidence">51% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
-</div>
-
-<!-- 18 -->
-<div class="prob-card">
-<div class="match-date">25 NOVEMBER 2026 <span class="league-name">CHAMPIONS LEAGUE</span></div>
-<div class="teams-row">
-<div class="team">Manchester United</div>
-<div><div class="predicted-score">2 - 1</div><div class="predicted-label">PREDICTED</div></div>
-<div class="team away-team">Sporting CP</div>
-</div>
-<div class="prob-numbers"><span class="home-pct">48%</span><span class="draw-pct">26%</span><span class="away-pct">26%</span></div>
-<div class="prob-bar"><div class="prob-home" style="width:48%"></div><div class="prob-draw" style="width:26%"></div><div class="prob-away" style="width:26%"></div></div>
-<div class="prob-labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="prediction-result">🏆 Man United Win</span><span class="confidence">48% confidence</span>
-<div class="market-info">Over 1.5: YES<br>Over 2.5: YES<br>BTTS: YES</div>
+<div class="details">View Details →</div>
 </div>
 
 </div>
 
-<p class="prediction-note">
-⚠️ Predictions and percentages are estimates, not guaranteed results or verified bookmaker odds.
+<p style="color:#69ff8c;text-align:center;margin-top:25px">
+BOAZ FOOTBALL | PREDICTIONS ARE ESTIMATES, NOT GUARANTEES
 </p>
 
 </section>
