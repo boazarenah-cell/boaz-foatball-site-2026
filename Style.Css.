@@ -1,67 +1,190 @@
-/* BOAZ FOOTBALL - BIGGER, CLEARER TEXT */
+
+/* =================================
+   BOAZ FOOTBALL - PERMANENT DESIGN
+   ================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #080d18 !important;
+}
 
 body {
-  font-size: 20px;
-  line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #080d18 !important;
+    color: #ffffff !important;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: #101a2b !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 22px 15px;
+    border-bottom: 2px solid #00ff41;
 }
 
 header h1 {
-  font-size: 36px;
-  font-weight: 900;
+    color: #00ff41 !important;
+    font-size: 32px;
+    font-weight: 900;
+    margin: 5px 0;
 }
 
+/* HEADINGS */
+
 h2 {
-  font-size: 30px;
+    color: #00ff41 !important;
+    font-size: 26px;
+    font-weight: 900;
 }
 
 h3 {
-  font-size: 25px;
+    color: #ffffff !important;
+    font-size: 23px;
+    font-weight: 900;
 }
+
+/* MATCH CARDS */
 
 .match-card {
-  padding: 22px;
+    background: #142238 !important;
+    color: #ffffff !important;
+    border: 2px solid #087a35;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
 }
 
-.match-card .teams,
-.team-name {
-  font-size: 24px;
-  font-weight: 900;
-  color: #ffffff;
+.match-card h3,
+.match-card .teams {
+    color: #ffffff !important;
+    font-size: 23px;
+    font-weight: 900;
 }
 
-.match-card .score {
-  font-size: 30px;
-  font-weight: 900;
-  color: #00ff41;
+.match-card p {
+    color: #ffffff;
+    font-size: 18px;
 }
 
-.match-card p,
-.match-card span,
-.match-card td {
-  font-size: 19px;
+/* SCORES */
+
+.score {
+    color: #00ff41 !important;
+    font-size: 25px;
+    font-weight: 900;
 }
 
-button,
+/* PREDICTIONS */
+
+.prediction,
+.odds,
+.stats {
+    color: #69ff8c !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* TABLES */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #142238 !important;
+    color: #ffffff !important;
+    font-size: 18px;
+}
+
+th {
+    background: #101a2b !important;
+    color: #00ff41 !important;
+    padding: 12px;
+    border: 1px solid #087a35;
+}
+
+td {
+    color: #ffffff !important;
+    padding: 12px;
+    border: 1px solid #087a35;
+}
+
+/* LINKS */
+
 a {
-  font-size: 19px;
-  font-weight: bold;
+    color: #69ff8c;
+    font-weight: bold;
 }
 
-@media (max-width: 600px) {
-  body {
-    font-size: 19px;
-  }
+/* BUTTONS */
 
-  header h1 {
-    font-size: 32px;
-  }
+button {
+    background: #087a35;
+    color: #ffffff;
+    border: 2px solid #00ff41;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 18px;
+    font-weight: 900;
+}
 
-  .match-card .teams,
-  .team-name {
-    font-size: 22px;
-  }
+/* WHATSAPP FOOTER */
 
-  .match-card .score {
-    font-size: 27px;
-  }
+footer {
+    background: #101a2b !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 22px 15px;
+    margin-top: 25px;
+    border-top: 2px solid #00ff41;
+    font-size: 18px;
+}
+
+footer a {
+    color: #00ff41 !important;
+    font-size: 20px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+footer p {
+    color: #69ff8c !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* MOBILE DISPLAY */
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .match-card {
+        padding: 18px;
+    }
+
+    .match-card h3,
+    .match-card .teams {
+        font-size: 23px;
+    }
+
+    .score {
+        font-size: 25px;
+    }
+
+    table {
+        font-size: 16px;
+    }
 }
