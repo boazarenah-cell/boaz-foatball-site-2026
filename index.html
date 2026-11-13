@@ -1,281 +1,65 @@
 
-<style>
-#boaz-predictions,
-#boaz-predictions * {
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-#boaz-predictions {
-    background: #080d18 !important;
-    color: #fff !important;
-    padding: 15px;
-    font-family: Arial, sans-serif;
-}
+<title>BOAZ FOOTBALL - Match Predictions</title>
 
-#boaz-predictions h2 {
-    color: #00ff41 !important;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 900;
-    margin: 22px 0;
-}
+<link rel="stylesheet" href="style.css">
+</head>
 
-#boaz-predictions .cards {
-    display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 15px;
-}
+<body>
 
-#boaz-predictions .card {
-    background: linear-gradient(145deg,#063b27,#071a19) !important;
-    border: 2px solid #087a35 !important;
-    border-radius: 14px;
-    padding: 18px;
-    color: white !important;
-    box-shadow: 0 0 10px #087a3555;
-    min-width: 0;
-}
+<header>
+    <h1>⚽ BOAZ FOOTBALL</h1>
+    <p>DAILY FOOTBALL PREDICTIONS</p>
+</header>
 
-#boaz-predictions .date {
-    color: #69ff8c !important;
-    font-size: 14px;
-    font-weight: bold;
-}
+<main>
 
-#boaz-predictions .teams {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 7px;
-    margin: 25px 0;
-}
+    <section class="welcome">
+        <h2>WELCOME TO BOAZ FOOTBALL</h2>
+        <p>Today's Predictions and All Football Matches</p>
+    </section>
 
-#boaz-predictions .team {
-    color: #fff !important;
-    font-size: 20px;
-    font-weight: 900;
-    overflow-wrap: anywhere;
-}
+    <section id="predictions">
+        <h2>⚽ MATCH PREDICTIONS</h2>
 
-#boaz-predictions .away {
-    text-align: right;
-}
+        <!-- ADD YOUR MATCH PREDICTIONS BELOW -->
 
-#boaz-predictions .score {
-    color: #00ff41 !important;
-    font-size: 29px;
-    font-weight: 900;
-    text-align: center;
-    white-space: nowrap;
-}
+        <div class="match-card">
+            <h3>TEAM A VS TEAM B</h3>
+            <p class="score">PREDICTED SCORE: 2 - 1</p>
+            <p class="prediction">WIN: TEAM A</p>
+            <p class="stats">OVER 1.5: YES</p>
+            <p class="stats">OVER 2.5: YES</p>
+            <p class="stats">BTTS: YES</p>
+        </div>
 
-#boaz-predictions .small {
-    color: #69ff8c !important;
-    font-size: 12px;
-    text-align: center;
-}
+        <!-- END OF SAMPLE MATCH -->
 
-#boaz-predictions .percentages {
-    display: flex;
-    justify-content: space-between;
-    font-size: 17px;
-    font-weight: 900;
-    margin: 15px 0 8px;
-}
+    </section>
 
-#boaz-predictions .blue {color:#3994ff;}
-#boaz-predictions .grey {color:#ddd;}
-#boaz-predictions .red {color:#ff5555;}
+</main>
 
-#boaz-predictions .bar {
-    display: flex;
-    height: 14px;
-    overflow: hidden;
-    border-radius: 20px;
-}
+<footer class="boaz-footer">
 
-#boaz-predictions .home-bar {background:#237cff;}
-#boaz-predictions .draw-bar {background:#bfc4cc;}
-#boaz-predictions .away-bar {background:#e52e3b;}
+    <h2>📞 CONTACT BOAZ FOOTBALL</h2>
 
-#boaz-predictions .labels {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    font-size: 14px;
-    margin-top: 8px;
-}
+    <a href="https://wa.me/256777232502"
+       target="_blank"
+       class="whatsapp-contact">
+       💬 CONTACT US ON WHATSAPP
+    </a>
 
-#boaz-predictions .winner {
-    display: inline-block;
-    background: #087a35;
-    color: white;
-    padding: 9px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 900;
-    margin-top: 18px;
-}
+    <p class="phone">WHATSAPP: +256 777 232 502</p>
 
-#boaz-predictions .confidence {
-    color: #69ff8c;
-    float: right;
-    font-size: 14px;
-    font-weight: 900;
-    margin-top: 23px;
-}
+    <p>BOAZ FOOTBALL © 2026</p>
+    <p>Football Predictions | Match Analysis</p>
 
-#boaz-predictions .markets {
-    clear: both;
-    background: #102b23;
-    border: 1px solid #087a35;
-    border-radius: 9px;
-    padding: 12px;
-    margin-top: 17px;
-    color: #69ff8c;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.8;
-}
+</footer>
 
-#boaz-predictions .details {
-    background: #101a2b;
-    border: 1px solid #087a35;
-    border-radius: 8px;
-    padding: 12px;
-    color: #69ff8c;
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-@media(max-width:850px) {
-    #boaz-predictions .cards {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-    }
-}
-
-@media(max-width:550px) {
-    #boaz-predictions .cards {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
-
-<section id="boaz-predictions">
-
-<h2>🏆 BOAZ FOOTBALL</h2>
-<h2>UEFA CHAMPIONS LEAGUE</h2>
-<h2>24–25 NOVEMBER 2026</h2>
-
-<p style="text-align:center;color:#69ff8c;font-weight:bold">
-MATCH PREDICTIONS AND WIN PROBABILITIES
-</p>
-
-<h2>📅 TUESDAY 24 NOVEMBER</h2>
-
-<div class="cards">
-
-<!-- MATCH 1 -->
-<div class="card">
-<div class="date">24 NOVEMBER | CHAMPIONS LEAGUE</div>
-<div class="teams">
-<div class="team">Arsenal</div>
-<div>
-<div class="score">2 - 1</div>
-<div class="small">PREDICTED</div>
-</div>
-<div class="team away">Dortmund</div>
-</div>
-<div class="percentages">
-<span class="blue">52%</span>
-<span class="grey">24%</span>
-<span class="red">24%</span>
-</div>
-<div class="bar">
-<div class="home-bar" style="width:52%"></div>
-<div class="draw-bar" style="width:24%"></div>
-<div class="away-bar" style="width:24%"></div>
-</div>
-<div class="labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="winner">Home Win</span>
-<span class="confidence">52% confident</span>
-<div class="markets">
-Over 1.5: YES<br>
-Over 2.5: YES<br>
-BTTS: YES
-</div>
-<div class="details">View Details →</div>
-</div>
-
-<!-- MATCH 2 -->
-<div class="card">
-<div class="date">24 NOVEMBER | CHAMPIONS LEAGUE</div>
-<div class="teams">
-<div class="team">Man City</div>
-<div>
-<div class="score">3 - 1</div>
-<div class="small">PREDICTED</div>
-</div>
-<div class="team away">Napoli</div>
-</div>
-<div class="percentages">
-<span class="blue">58%</span>
-<span class="grey">22%</span>
-<span class="red">20%</span>
-</div>
-<div class="bar">
-<div class="home-bar" style="width:58%"></div>
-<div class="draw-bar" style="width:22%"></div>
-<div class="away-bar" style="width:20%"></div>
-</div>
-<div class="labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="winner">Home Win</span>
-<span class="confidence">58% confident</span>
-<div class="markets">
-Over 1.5: YES<br>
-Over 2.5: YES<br>
-BTTS: YES
-</div>
-<div class="details">View Details →</div>
-</div>
-
-<!-- MATCH 3 -->
-<div class="card">
-<div class="date">24 NOVEMBER | CHAMPIONS LEAGUE</div>
-<div class="teams">
-<div class="team">Real Madrid</div>
-<div>
-<div class="score">3 - 1</div>
-<div class="small">PREDICTED</div>
-</div>
-<div class="team away">PSV</div>
-</div>
-<div class="percentages">
-<span class="blue">60%</span>
-<span class="grey">21%</span>
-<span class="red">19%</span>
-</div>
-<div class="bar">
-<div class="home-bar" style="width:60%"></div>
-<div class="draw-bar" style="width:21%"></div>
-<div class="away-bar" style="width:19%"></div>
-</div>
-<div class="labels"><span>Home</span><span>Draw</span><span>Away</span></div>
-<span class="winner">Home Win</span>
-<span class="confidence">60% confident</span>
-<div class="markets">
-Over 1.5: YES<br>
-Over 2.5: YES<br>
-BTTS: YES
-</div>
-<div class="details">View Details →</div>
-</div>
-
-</div>
-
-<p style="color:#69ff8c;text-align:center;margin-top:25px">
-BOAZ FOOTBALL | PREDICTIONS ARE ESTIMATES, NOT GUARANTEES
-</p>
-
-</section>
+</body>
+</html>
