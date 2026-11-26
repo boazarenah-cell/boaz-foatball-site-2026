@@ -1,1 +1,81 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learn about BOAZ FOOTBALL, our football predictions, match analysis and football coverage.">
+<title>About Us | BOAZ FOOTBALL</title>
+<style>
+body {
+  background:#080d18;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:18px;
+  padding:15px;
+  line-height:1.7;
+}
+header, .content, footer {
+  background:#101a2b;
+  border:2px solid #087a35;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:18px;
+}
+h1,h2 {color:#00ff41;}
+h1 {font-size:32px;text-align:center;}
+h2 {font-size:23px;}
+p,li {color:#69ff8c;}
+a {color:#00ff41;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🏆 BOAZ FOOTBALL</h1>
+<p>Football Predictions and Match Analysis</p>
+</header>
+
+<div class="content">
+<h2>About BOAZ FOOTBALL</h2>
+
+<p>Welcome to BOAZ FOOTBALL, a football-focused website
+created for football fans who enjoy match predictions,
+football discussions and match analysis.</p>
+
+<h2>What We Offer</h2>
+<ul>
+<li>Football match predictions.</li>
+<li>Home win, draw and away win analysis.</li>
+<li>Over 1.5 and Over 2.5 goals predictions.</li>
+<li>Both Teams To Score (BTTS) predictions.</li>
+<li>Correct score predictions.</li>
+<li>Coverage of football competitions and leagues.</li>
+</ul>
+
+<h2>Our Mission</h2>
+<p>Our mission is to share useful football information
+and make football discussions more interesting for
+our visitors.</p>
+
+<h2>Important Disclaimer</h2>
+<p>All predictions are opinions and estimates.
+Football results are unpredictable. We do not
+guarantee winning bets or profits. Please gamble
+responsibly and only where legally permitted.</p>
+
+<h2>Contact Us</h2>
+<p>We welcome feedback and questions from our visitors.</p>
+<p>WhatsApp: <a href="https://wa.me/256777232502">
++256 777 232 502</a></p>
+
+<p><a href="index.html">← Back to Home</a></p>
+</div>
+
+<footer>
+<p>© 2026 BOAZ FOOTBALL</p>
+</footer>
+
+</body>
+</html>
