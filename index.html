@@ -4,23 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BOAZ FOOTBALL | Weekend Predictions</title>
-
-<meta name="description" content="BOAZ FOOTBALL provides football match predictions, fixtures, estimated scores, goal predictions and football analysis.">
-
-<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#080d18">
+<title>BOAZ FOOTBALL - Daily Predictions</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
+  margin: 0;
   background: #080d18;
   color: #ffffff;
   font-family: Arial, sans-serif;
   font-size: 18px;
-  margin: 0;
-  padding: 15px;
 }
 
 header {
@@ -28,59 +25,41 @@ header {
   border-bottom: 2px solid #00ff41;
   padding: 22px 12px;
   text-align: center;
-  border-radius: 10px;
 }
 
 header h1 {
   color: #00ff41;
   font-size: 32px;
   font-weight: 900;
+  margin: 0 0 10px;
 }
 
 header p {
   color: #69ff8c;
-  font-weight: bold;
+  margin: 5px;
 }
 
-nav {
-  text-align: center;
-  background: #101a2b;
-  padding: 15px 5px;
-  margin-top: 12px;
-  border: 1px solid #087a35;
-  border-radius: 10px;
-}
-
-nav a {
-  color: #00ff41;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 8px;
-  display: inline-block;
-}
-
-h2 {
-  color: #00ff41;
-  text-align: center;
-  font-size: 25px;
-}
-
-.date {
-  color: #69ff8c;
-  text-align: center;
-  font-weight: bold;
-  font-size: 19px;
+.container {
+  width: 94%;
+  max-width: 850px;
+  margin: 20px auto;
 }
 
 .section-title {
-  background: #101a2b;
   color: #00ff41;
-  border: 2px solid #087a35;
+  font-size: 25px;
+  font-weight: 900;
+  margin: 25px 0 15px;
+}
+
+.status {
+  background: #101a2b;
+  border: 1px solid #087a35;
   border-radius: 10px;
   padding: 14px;
+  color: #69ff8c;
+  margin-bottom: 18px;
   text-align: center;
-  margin-top: 25px;
-  font-size: 23px;
 }
 
 .match-card {
@@ -91,98 +70,73 @@ h2 {
   margin: 15px 0;
 }
 
-.match-card h3 {
+.match-card h3,
+.match-card .teams {
   color: #ffffff;
   font-size: 23px;
   font-weight: 900;
   text-align: center;
 }
 
-.score {
+.league {
   color: #00ff41;
-  font-size: 28px;
-  font-weight: 900;
-  text-align: center;
-  margin: 12px;
-}
-
-.prediction {
-  color: #69ff8c;
-  background: #101a2b;
-  text-align: center;
   font-weight: bold;
-  padding: 10px;
-  border-radius: 8px;
-  margin: 12px 0;
+  text-align: center;
 }
 
-.odds, .stats {
+.match-time {
+  color: #ffffff;
+  text-align: center;
+  margin: 10px;
+}
+
+.prediction, .odds, .stats {
   color: #69ff8c;
   font-size: 18px;
   font-weight: bold;
-  line-height: 1.8;
+  margin: 10px 0;
 }
 
-.about {
-  background: #142238;
-  border: 2px solid #087a35;
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 25px;
-  line-height: 1.7;
-}
-
-.about h2 {
-  color: #00ff41;
-}
-
-.about p {
+.notice {
   color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background: #00ff41;
+  color: #080d18;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 900;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
 }
 
 footer {
   background: #101a2b;
-  border: 2px solid #087a35;
-  border-radius: 12px;
-  padding: 22px 12px;
+  border-top: 2px solid #00ff41;
   text-align: center;
-  margin-top: 25px;
+  padding: 25px 12px;
+  margin-top: 35px;
 }
 
-.whatsapp {
-  display: block;
-  background: #00ff41;
-  color: #080d18;
-  font-size: 21px;
+footer a {
+  color: #00ff41;
   font-weight: 900;
   text-decoration: none;
-  padding: 16px 10px;
-  border-radius: 10px;
-  margin: 18px auto;
-  max-width: 420px;
+  font-size: 19px;
 }
 
-.whatsapp-number {
-  color: #00ff41;
-  font-size: 27px;
-  font-weight: 900;
+.empty {
+  color: #ffffff;
   text-align: center;
-  display: block;
-  margin: 15px 0;
-}
-
-.footer-links a {
-  color: #00ff41;
-  font-weight: bold;
-  text-decoration: underline;
-  margin: 8px;
-  display: inline-block;
-}
-
-.disclaimer {
-  color: #69ff8c;
-  font-size: 15px;
-  line-height: 1.6;
+  padding: 25px;
+  background: #142238;
+  border-radius: 10px;
 }
 
 </style>
@@ -191,384 +145,194 @@ footer {
 <body>
 
 <header>
-<h1>🏆 BOAZ FOOTBALL</h1>
-<p>FOOTBALL MATCH PREDICTIONS</p>
+  <h1>BOAZ FOOTBALL</h1>
+  <p>Today's Football Matches & Predictions</p>
+  <p id="today"></p>
 </header>
 
-<nav>
-<a href="#predictions">Predictions</a>
-<a href="#about">About Us</a>
-<a href="privacy.html">Privacy Policy</a>
-</nav>
+<main class="container">
 
-<h2 id="predictions">⚽ WEEKEND PREDICTIONS</h2>
+  <div class="status" id="connection">
+    Connecting to football data...
+  </div>
 
-<p class="date">28–29 NOVEMBER 2026</p>
+  <button onclick="loadMatches()">REFRESH MATCHES</button>
 
-<p class="date">
-ALL TIMES IN EAST AFRICAN TIME (EAT) WHERE LISTED
-</p>
+  <h2 class="section-title">TODAY'S MATCHES</h2>
+  <div id="todayMatches">
+    <div class="empty">Loading today's matches...</div>
+  </div>
 
-<h2 class="section-title">📅 SATURDAY, 28 NOVEMBER</h2>
+  <h2 class="section-title">UPCOMING MATCHES</h2>
+  <div id="upcomingMatches">
+    <div class="empty">Loading upcoming matches...</div>
+  </div>
 
-<div id="saturday"></div>
+  <p class="notice">
+    Fixtures are supplied by Football-Data.org.
+    Predictions are estimates and are not guaranteed results.
+  </p>
 
-<h2 class="section-title">📅 SUNDAY, 29 NOVEMBER</h2>
-
-<div id="sunday"></div>
-
-<script>
-
-const matches = [
-
-{
-day:"saturday",
-home:"LEEDS UNITED",
-away:"COVENTRY CITY",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:48,draw:27,awayWin:25,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"MANCHESTER UNITED",
-away:"BRENTFORD",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:48,draw:26,awayWin:26,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"IPSWICH TOWN",
-away:"ASTON VILLA",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:25,draw:27,awayWin:48,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"MAINZ 05",
-away:"UNION BERLIN",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:48,draw:27,awayWin:25,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"HAMBURG",
-away:"BAYERN MUNICH",
-score:"1 - 3",
-prediction:"Away Win",
-homeWin:13,draw:19,awayWin:68,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"COLOGNE",
-away:"ELVERSBERG",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:54,draw:25,awayWin:21,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"PADERBORN",
-away:"SCHALKE 04",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:29,draw:26,awayWin:45,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"STUTTGART",
-away:"EINTRACHT FRANKFURT",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:51,draw:25,awayWin:24,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"saturday",
-home:"INTER",
-away:"GENOA",
-score:"2 - 0",
-prediction:"Home Win",
-homeWin:69,draw:20,awayWin:11,
-over15:"YES",over25:"NO",btts:"NO"
-},
-
-{
-day:"sunday",
-home:"EVERTON",
-away:"LIVERPOOL",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:24,draw:25,awayWin:51,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"BRIGHTON",
-away:"NEWCASTLE UNITED",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:30,draw:27,awayWin:43,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"CRYSTAL PALACE",
-away:"HULL CITY",
-score:"2 - 0",
-prediction:"Home Win",
-homeWin:65,draw:22,awayWin:13,
-over15:"YES",over25:"NO",btts:"NO"
-},
-
-{
-day:"sunday",
-home:"FULHAM",
-away:"BOURNEMOUTH",
-score:"1 - 1",
-prediction:"Draw",
-homeWin:34,draw:32,awayWin:34,
-over15:"YES",over25:"NO",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"SUNDERLAND",
-away:"TOTTENHAM",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:25,draw:27,awayWin:48,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"ARSENAL",
-away:"MANCHESTER CITY",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:43,draw:28,awayWin:29,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"VALENCIA",
-away:"OSASUNA",
-score:"1 - 0",
-prediction:"Home Win",
-homeWin:47,draw:29,awayWin:24,
-over15:"NO",over25:"NO",btts:"NO"
-},
-
-{
-day:"sunday",
-home:"DEPORTIVO LA CORUNA",
-away:"BARCELONA",
-score:"0 - 2",
-prediction:"Away Win",
-homeWin:12,draw:19,awayWin:69,
-over15:"YES",over25:"NO",btts:"NO"
-},
-
-{
-day:"sunday",
-home:"CELTA VIGO",
-away:"VILLARREAL",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:30,draw:27,awayWin:43,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"UDINESE",
-away:"FIORENTINA",
-score:"1 - 1",
-prediction:"Draw",
-homeWin:31,draw:34,awayWin:35,
-over15:"YES",over25:"NO",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"SASSUOLO",
-away:"NAPOLI",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:20,draw:25,awayWin:55,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"COMO",
-away:"JUVENTUS",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:24,draw:28,awayWin:48,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"FEYENOORD",
-away:"AJAX",
-score:"2 - 1",
-prediction:"Home Win",
-homeWin:51,draw:25,awayWin:24,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"HEARTS",
-away:"CELTIC",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:25,draw:25,awayWin:50,
-over15:"YES",over25:"YES",btts:"YES"
-},
-
-{
-day:"sunday",
-home:"STANDARD LIEGE",
-away:"CLUB BRUGGE",
-score:"1 - 2",
-prediction:"Away Win",
-homeWin:23,draw:25,awayWin:52,
-over15:"YES",over25:"YES",btts:"YES"
-}
-
-];
-
-matches.forEach((match,index) => {
-
-const card = document.createElement("div");
-
-card.className = "match-card";
-
-card.innerHTML = `
-<h3>${index+1}. ${match.home} vs ${match.away}</h3>
-
-<div class="score">${match.score}</div>
-
-<div class="prediction">
-Prediction: ${match.prediction}
-</div>
-
-<div class="odds">
-Home Win: ${match.homeWin}%<br>
-Draw: ${match.draw}%<br>
-Away Win: ${match.awayWin}%
-</div>
-
-<div class="stats">
-Over 1.5 Goals: ${match.over15}<br>
-Over 2.5 Goals: ${match.over25}<br>
-BTTS: ${match.btts}<br>
-Correct Score: ${match.score}
-</div>
-`;
-
-document.getElementById(match.day).appendChild(card);
-
-});
-
-</script>
-
-<section class="about" id="about">
-
-<h2>ABOUT BOAZ FOOTBALL</h2>
-
-<p>
-Welcome to BOAZ FOOTBALL, a football information and prediction
-website dedicated to football fans.
-</p>
-
-<p>
-We share football match predictions, estimated scores,
-goal markets and football analysis covering different
-football competitions.
-</p>
-
-<p>
-Our aim is to help football fans enjoy the game and
-follow upcoming matches.
-</p>
-
-<p>
-Our predictions are independent opinions and are
-not guaranteed outcomes.
-</p>
-
-</section>
+</main>
 
 <footer>
-
-<h2>🏆 BOAZ FOOTBALL</h2>
-
-<a class="whatsapp"
-href="https://wa.me/256777232502"
-target="_blank"
-rel="noopener noreferrer">
-
-📲 CONTACT US ON WHATSAPP
-
-</a>
-
-<span class="whatsapp-number">
-+256 777 232 502
-</span>
-
-<div class="footer-links">
-
-<a href="privacy.html">PRIVACY POLICY</a>
-
-<a href="#about">ABOUT US</a>
-
-</div>
-
-<p class="disclaimer">
-Share BOAZ FOOTBALL with your friends!
-</p>
-
-<p class="disclaimer">
-Predictions and percentages are estimates and opinions,
-not guaranteed results or bookmaker odds.
-</p>
-
-<p class="disclaimer">
-Please gamble responsibly. Only adults should participate
-in gambling activities.
-</p>
-
-<p class="disclaimer">
-© 2026 BOAZ FOOTBALL. All Rights Reserved.
-</p>
-
+  <p>BOAZ FOOTBALL</p>
+  <a href="https://wa.me/256777232502" target="_blank">
+    Contact Us on WhatsApp
+  </a>
+  <p style="color:#69ff8c">Thank you for visiting BOAZ FOOTBALL</p>
 </footer>
+
+<script>
+const todayElement = document.getElementById("today");
+
+function getDateString(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString("en-UG", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+}
+
+todayElement.textContent = formatDate(new Date());
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function createMatchCard(match) {
+  const home = match.homeTeam?.name || "Home team";
+  const away = match.awayTeam?.name || "Away team";
+  const league = match.competition?.name || "Football match";
+  const time = new Date(match.utcDate).toLocaleTimeString("en-UG", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Africa/Kampala"
+  });
+
+  return `
+    <div class="match-card">
+      <div class="league">${escapeHTML(league)}</div>
+      <div class="match-time">
+        ${escapeHTML(formatDate(match.utcDate))} |
+        ${escapeHTML(time)} (Uganda time)
+      </div>
+      <div class="teams">
+        ${escapeHTML(home)}<br>
+        <span style="color:#00ff41">VS</span><br>
+        ${escapeHTML(away)}
+      </div>
+      <div class="prediction">
+        Prediction: Analysis pending
+      </div>
+      <div class="stats">
+        Fixture status: Scheduled
+      </div>
+    </div>
+  `;
+}
+
+async function loadMatches() {
+  const connection = document.getElementById("connection");
+  const todayBox = document.getElementById("todayMatches");
+  const upcomingBox = document.getElementById("upcomingMatches");
+
+  connection.textContent = "Updating football fixtures...";
+
+  try {
+    const now = new Date();
+    const start = getDateString(now);
+    const endDate = new Date(now);
+    endDate.setDate(endDate.getDate() + 7);
+    const end = getDateString(endDate);
+
+    const response = await fetch(
+      `/api/matches?dateFrom=${start}&dateTo=${end}`,
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Football API returned error " + response.status);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data.matches)) {
+      throw new Error(data.message || "Invalid football data");
+    }
+
+    const currentTime = Date.now();
+    const todayDate = getDateString(now);
+
+    // Only scheduled matches are displayed.
+    // Finished, cancelled and already-started matches are excluded.
+    const matches = data.matches
+      .filter(match =>
+        match.utcDate &&
+        ["SCHEDULED", "TIMED"].includes(match.status) &&
+        new Date(match.utcDate).getTime() > currentTime
+      )
+      .sort((a, b) =>
+        new Date(a.utcDate) - new Date(b.utcDate)
+      );
+
+    const today = matches.filter(match =>
+      new Date(match.utcDate).toLocaleDateString("en-CA", {
+        timeZone: "Africa/Kampala"
+      }) === todayDate
+    );
+
+    const upcoming = matches.filter(match =>
+      new Date(match.utcDate).toLocaleDateString("en-CA", {
+        timeZone: "Africa/Kampala"
+      }) !== todayDate
+    );
+
+    todayBox.innerHTML = today.length
+      ? today.map(createMatchCard).join("")
+      : '<div class="empty">No more scheduled matches today.</div>';
+
+    upcomingBox.innerHTML = upcoming.length
+      ? upcoming.map(createMatchCard).join("")
+      : '<div class="empty">No upcoming scheduled matches found.</div>';
+
+    connection.textContent =
+      "Football data connected | Last updated: " +
+      new Date().toLocaleTimeString("en-UG");
+
+  } catch (error) {
+    connection.textContent =
+      "Football data connection unavailable. Please try again.";
+
+    todayBox.innerHTML =
+      '<div class="empty">Unable to load today's fixtures. Please try again later.</div>';
+
+    upcomingBox.innerHTML =
+      '<div class="empty">Upcoming fixtures could not be loaded.</div>';
+
+    console.error(error);
+  }
+}
+
+loadMatches();
+
+// Automatically refresh every 5 minutes.
+setInterval(loadMatches, 5 * 60 * 1000);
+</script>
 
 </body>
 </html>
